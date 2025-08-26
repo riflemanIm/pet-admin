@@ -1,0 +1,806 @@
+{
+  "ERROR_CODES": {
+    "5XX": "Обслуживание временно приостановлено"
+  },
+  "BOTTOM": {
+    "COPY": "© Post Modern Technology 2024. Все права защищены"
+  },
+  "SIGN": {
+    "SIGN": "Войти",
+    "SIGNOUT": "Выход",
+    "CH_BUTTON_SUBMIT": "Сменить пароль",
+    "CH_CONFIRM_CODE": "Код подтверждения смены пароля",
+    "CH_CONFIRM_CODE_SENT": "Введите код для подтверждения смены пароля, выслан на email",
+    "CH_CONFIRM_CODE_SENT_CHANGE_PHONE": "Введите код для подтверждения мобильного телефона",
+    "CH_CONFIRM_CODE_SENT_CHANGE_EMAIL": "Введите код для подтверждения Email",
+    "CH_PASS_ACCOUNT_NOT_FOUND": "Такой email или логин не существуют",
+    "CH_PASS_BUTTON": "Смена пароля",
+    "CH_PASS_OK": "Успешная смена пароля",
+    "IN_BUTTON": "Вход в систему",
+    "IN_DOC_ENTER": "Вход для врача",
+    "IN_ERRORS": "Что-то не так с вашим логином или паролем :(",
+    "IN_FOGOT_PASS": "Забыли пароль?",
+    "IN_HEAD": "Ваш врач онлайн для Вас и Вашей семьи",
+    "IN_HEAD_DOC": "Вход для врача",
+    "IN_HEAD_DOC1": "Пожалуйста, представьтесь",
+    "IN_PATIENT_ENTER": "Вход для пациента",
+    "IN_TEXT": "Портал {{defTitle}} - это новейший веб-сервис для тех, кто дорожит своим здоровьем и временем, заботится о своих близких. С помощью {{defTitle}} Вы можете безопасно и эффективно управлять своими медицинскими картами, записываться на консультации и лечебно-диагностические мероприятия для себя и для членов семьи из любой географической точки с доступом в интернет.",
+    "IN_PASS_HAS_BEEN_EXPIRED": "Пожалуйста смените временный пароль",
+    "IN_EISA": "Вход через Госуслуги",
+    "IN_EMPTY_CONFIRM_CODE": "Пожалуйста, заполните код подтверждения",
+    "UP_AGEEMENT": "Я принимаю условия соглашения",
+    "UP_BUTTON": "Регистрация",
+    "UP_BUTTON_SUBMIT": "Создать аккаунт",
+    "UP_CONFIRM_CODE": "Код подтверждения регистрации",
+    "UP_EMAIL_ALREADY_REG": "Такой email уже зарегистрирован",
+    "UP_EMPTY_EMAIL": "Введите email",
+    "UP_EMPTY_PHONE": "Введите телефон",
+    "UP_EMPTY_EMAIL_OR_PHONE": "Введите email или телефон",
+    "UP_NOT_VALID_EMAIL_OR_PHONE": "Некорректный email или телефон",
+    "UP_EMPTY_PASS": "Введите пароль",
+    "UP_MAY_LOGIN": "Можете войти в систему",
+    "UP_NOT_MATCH_PASS": "Пароли не совпадают",
+    "UP_NOT_VALID_EMAIL": "Некорректный email",
+    "UP_NOT_VALID_PHONE": "Некорректный телефон",
+    "UP_NOT_VALID_CONFIRM_CODE": "Введите код подтверждения",
+    "UP_NOT_VALID_PASS": "Пароль должен содержать: хотя бы одно число, хотя бы одну латинскую букву в нижнем и верхнем регистре, хотя бы один специальный символ и должен быть не менее, чем из 5 символов",
+    "UP_OK": "Успешная регистрация",
+    "UP_SUBMIT_CONFIRM": "Подтвердить",
+    "UP_TITLE_LIC_AGR": "Лицензионное соглашение",
+    "UP_WRONG_LOG_OR_PASS": "Комбинация Email или пароль не верна",
+    "UP_NOT_VALID_NAME": "Некорректное имя",
+    "UP_NOT_VALID_LAST_NAME": "Некорректная фамилия",
+    "UP_NOT_VALID_MIDDLE_NAME": "Некорректное отчество",
+    "UP_ONE_DIGIT": "хотя бы одно число",
+    "UP_ONE_UPPER_LETTER": "хотя бы одна латинская буква в верхнем регистре",
+    "UP_ONE_LOWECASE_LAEER": "хотя бы одна латинская буква в нижнем регистре",
+    "UP_ONE_SYMBOL": "хотя бы один специальный символ",
+    "UP_MIN_LENGTH": "не менее, чем  5 вышеупомянутых символов",
+    "UP_CONFIRM_CODE_WRONG": "Неправильный код подтверждения",
+    "UP_HELPER_TEXT": "Для полноценного функционирования в системе Вам необходимо зарегистрироваться. После полной регистрации в системе у Вас появится электронная медицинская карта и другие функции системы",
+    "UP_FILL_TEXT_AGEEMENT": "Заполните текст соглашения"
+  },
+  "CONFIRM": {
+    "OK": "Подтверждение прошло успешно",
+    "ERR": "Что-то пошло не так"
+  },
+  "COMMON": {
+    "SAVE": "Сохранить",
+    "CLOSE": "Закрыть",
+    "CANCEL": "Отмена",
+    "DELETE": "Удалить",
+    "EDIT": "Правка",
+    "ADD": "Добавление",
+    "RECORDS": "Записи",
+    "SPECIALIZATION": "Специальности",
+    "PLEXGRWEB": "Группы веб",
+    "CHECK": "Проверка",
+    "SETTINGS": "Настройка",
+    "ACCEPT": "Принять",
+    "RECORDSAVED": "Запись сохранена!",
+    "RECORDDELETED": "Запись удалена!",
+    "RECORDCOPIED": "Запись скопирована!",
+    "CHOOSEFILE": "Выбрать файл",
+    "UPLOADZONE": "Кликните или перетащие файл",
+    "DELETE_CONFIRMATION": "Вы уверены что хотите удалить запись?",
+    "FILL_CODE": "Заполните Код",
+    "FILL_CODE_LANG": "Заполните код языка",
+    "FILL_NAME": "Заполните Название",
+    "FILL_PHONE": "Заполните телефон",
+    "FILL_EMAIL": "Заполните Email",
+    "FILL_POST_ADD": "Заполните Почтовый адрес",
+    "FILL_URL": "Заполните URL",
+    "FILL_SPEC": "Заполните Специальность",
+    "FILL_LOGIN": "Введите электронную почту или телефон",
+    "FILL_PASS": "Заполните пароль",
+    "FILL_ANSW": "Заполните ответ",
+    "FILL_GROUP": "Заполните группу",
+    "FILL_QUES": "Заполните вопрос",
+    "FILL_DESCR": "Заполните описание",
+    "FILL_NOTI_TYPE": "Заполните способ уведомления",
+    "FILL_TEXT": "Заполните текст",
+    "FILL_SORT": "Заполните сортировку",
+    "FILL_DATE": "Заполните дату",
+    "FILL_IMG": "Заполните изображение",
+    "FILL_FIRST_NAME": "Заполните Имя",
+    "FILL_LASRT_NAME": "Заполните Фамилию",
+    "FILL_UUID": "Заполните UUID формы",
+    "FILL_TITLE": "Заполните заголовок",
+    "FILL_CONTROL": "Заполните Фамилию",
+    "FILL_ROUTE_PATH": "Заполните маршрут (URL или * для всех)",
+    "FILL_WINDOW_MS": "Заполните время в миллисекундах",
+    "FILL_RATE_LIMIT": "Заполните лимит запросов",
+    "WRONG_PASS": "Пароль должен содержать: хотя бы одно число, хотя бы одну латинскую букву в нижнем и верхнем регистре, хотя бы один специальный символ и должен быть не менее, чем из 5 символов",
+    "WRONG_PHONE": "Неверный телефон",
+    "WRONG_EMAIL": "Неверная электронная почта",
+    "TEXT_TOO_LONG": "Текст превышает максимальную длину"
+  },
+  "DELETEDIALOG": {
+    "TITLE": "Вы уверены что хотите удалить?",
+    "TEXT": "Запись будет удалена"
+  },
+  "LIST": {
+    "ADD": "Добавить",
+    "EXPORT": "Экспортировать",
+    "IMPORT": "Импортировать"
+  },
+  "LICENSE": {
+    "TITLE": "Ввод лицензии"
+  },
+  "HEADER": {
+    "ExpandMenu": "Раскрыть меню",
+    "CollapseMenu": "Свернуть меню"
+  },
+  "SIDEBAR": {
+    "content": "Содержимое",
+    "specialization": "Специальности",
+    "promo": "Промо акции",
+    "clinic": "Клиники",
+    "service": "Сервисы",
+    "medical_net": "Сети",
+    "medical_brand": "Бренды",
+    "notificationTemplate": "Шаблоны уведомлений",
+    "agreement": "Соглашения",
+    "medicalNetFaq": "ЧАВО",
+    "chat": "Чат",
+    "userData": "Данные пользователей",
+    "users": "Пользователи",
+    "reviews": "Отзывы",
+    "confirmationCodeSettings": "Настройки подтверждения",
+    "webForms": "Web-Формы",
+    "manage": "Управление",
+    "settings": "Настройки",
+    "cacheSettings": "Настройки кэша",
+    "hl7Settings": "Настройки HL7",
+    "rateLimitSettings": "Лимиты REST API",
+    "serviceTasks": "Служебные задачи",
+    "translation": "Переводы",
+    "reports": "Отчеты",
+    "statistics": "Статистика",
+    "audit": "Аудит"
+  },
+  "USER": {
+    "TITLE": "Пользователи",
+    "FIELDS": {
+      "userId": "ИД",
+      "actions": "Действия",
+      "isActive": "Активный",
+      "userType": "Роль",
+      "email": "Email",
+      "phone": "Телефон",
+      "mmk": "ММК",
+      "firstName": "Имя",
+      "middleName": "Отчество",
+      "lastName": "Фамилия",
+      "fullName": "ФИО",
+      "gender": "Пол",
+      "birthDate": "Дата рождения",
+      "cdate": "Зарегистрирован",
+      "registrationSourceId": "Источник",
+      "lastActive": "Последняя активность",
+      "hasDuplicate": "Дубли",
+      "password": "Пароль"
+    },
+    "REPORT": "Отчет",
+    "TOKENDIALOG": {
+      "TITLE": "Открытие кабинета пациента для техподдержки",
+      "MEDICALNET": "Сеть клиник",
+      "OPEN": "Открыть личный кабинет"
+    },
+    "DETAILSDIALOG": {
+      "TITLE": "Детали пользователя",
+      "CONFIRMATION_CODES": "Коды подтверждения",
+      "EMR": "ЭМК записи",
+      "SPAM": "Спам список",
+      "VISIT": "Визиты",
+      "NOTIFICATION_SETTINGS": "Настройки уведомлений",
+      "NOTIFICATIONS": "Уведомления"
+    },
+    "MERGEDIALOG": {
+      "TITLE": "Объединение пользователей",
+      "TARGET": "Приемник",
+      "SOURCE": "Источник",
+      "ERROR_BOTH_MMK": "Оба пользователя имеют ММК",
+      "ERROR_BOTH_NOMMK": "Оба пользователя не имеют ММК"
+    },
+    "ACTIVATE_TITLE": "Активировать пользователя?",
+    "ACTIVATE_TEXT": "Подтвердите активациюю пользователя",
+    "MERGE": "Объединить"
+  },
+  "USER_NOTIFICATION_SETTINGS": {
+    "FIELDS": {
+      "userNotificationId": "ИД",
+      "recordType": "Тип записи",
+      "notificationType": "Способ уведомления",
+      "isEnabled": "Включено",
+      "modifyDate": "Дата изменения"
+    }
+  },
+  "NOTIFICATION": {
+    "FIELDS": {
+      "ntfNotifyId": "ИД",
+      "userId": "ИД пользователя",
+      "clinicId": "ИД клиники",
+      "medicalNetId": "ИД сети клиник",
+      "recId": "ИД записи",
+      "recordType": "Тип записи",
+      "notifyDate": "Дата уведомления",
+      "notifyText": "Текст уведомления",
+      "customNotifyTitle": "Заголовок",
+      "notificationType": "Тип уведомления",
+      "eventType": "Тип события",
+      "tryCount": "Количество попыток отправки",
+      "tryDate": "Дата попытки отправки",
+      "status": "Статус",
+      "tryNextDate": "Дата следующей попытки отправки",
+      "notifyAddress": "Адрес для отправки уведомления",
+      "smsServiceId": "Идентификатор сервиса SMS",
+      "smsPrice": "Цена SMS",
+      "sendErrorText": "Текст ошибки отправки",
+      "smsPriceCount": "Количетсво SMS",
+      "notifyTextHtml": "Текст в HTML"
+    },
+    "USE_LOG": "Из журнала"
+  },
+  "SPECIALIZATION": {
+    "FIELDS": {
+      "specializationId": "ИД",
+      "actions": "Действия",
+      "code": "Название",
+      "sortOrder": "Порядок",
+      "shortDescription": "Короткое описание",
+      "description": "Полное описание",
+      "image": "Изображение для телефона",
+      "largeImage": "Изображение для сайта"
+    },
+    "IMPORTED": "Данные успешно импортированы",
+    "ORDERDIALOG": {
+      "TITLE": "Порядок специальности",
+      "ACTION": "Введите порядок специальности"
+    }
+  },
+  "PROMOACTION": {
+    "FIELDS": {
+      "medicalnetActionsId": "ИД",
+      "actions": "Действия",
+      "medicalNetId": "Сеть клиник",
+      "actionType": "Тип",
+      "description": "Заголовок",
+      "actionText": "Детали",
+      "url": "URL",
+      "dateFrom": "С",
+      "dateTo": "По",
+      "sortOrder": "Сортировка",
+      "image": "Картинка"
+    },
+    "IMAGE": {
+      "REQUIRED": "Изображение является обязательным",
+      "INFO": "Разрешение и размер изображения может быть любым.",
+      "FORMAT": "Формат",
+      "RESIZEINFO": "Изображение сожмется до"
+    },
+    "RECOMMENDATIONS": "Рекомендации"
+  },
+  "CLINIC": {
+    "FIELDS": {
+      "clinicId": "ИД",
+      "actions": "Действия",
+      "code": "Код",
+      "title": "Название",
+      "email": "Email",
+      "isVisible": "Видимость",
+      "url": "URL",
+      "postalAddress": "Почтовый адрес",
+      "phone": "Телефон",
+      "isAnonymousVisitsProhibited": "Запрет анонимной записи",
+      "defaultMedicalNetId": "Сеть по-умолчанию",
+      "clientServiceId": "Сервис",
+      "medicalBrandId": "Бренд",
+      "cdate": "Добавлена",
+      "clientDatabaseId": "Клиентская БД"
+    },
+    "DATATAB": "Данные клиники",
+    "PHOTOTAB": "Фото клиники",
+    "CHECK": "Проверка клиники"
+  },
+  "SERVICE": {
+    "FIELDS": {
+      "id": "ИД",
+      "actions": "Действия",
+      "label": "Название",
+      "state": "Статус",
+      "address": "Адрес клиента",
+      "fileServerAddress": "Адрес файл-сервера",
+      "dbdataAddress": "Адрес DBData",
+      "hl7Address": "Адрес HL7",
+      "discoveryAddress": "Адрес APPS discovery",
+      "discoveryToken": "Токен доступа APPS discovery",
+      "webformAddress": "Адрес сервера форм",
+      "clientKey": "Ключ клиента",
+      "params": "Параметры (JSON)",
+      "versionDate": "Проверка была",
+      "componentStatus": "Статус проверки"
+    },
+    "CHECK": "Проверка сервиса",
+    "DBDATA": {
+      "REQUEST": "Запрос DBData",
+      "RESPONSE": "Ответ DBData",
+      "EXECUTE": "Выполнить",
+      "TEMPLATE": "Шаблон"
+    },
+    "BROKER": {
+      "REQUEST": "Запрос broker",
+      "TYPE": "Тип",
+      "RESPONSE": "Ответ broker",
+      "EXECUTE": "Выполнить"
+    },
+    "CONTROLLER": {
+      "TITLE": "Управление сервисом",
+      "Address": "Адрес",
+      "Connection": "Строка подключения",
+      "Version": "Версия",
+      "Mode": "Режим",
+      "Logging": "Логирование",
+      "Events": "События",
+      "Command": "Команда",
+      "CommandOutput": "Вывод команды",
+      "Arguments": "Аргументы",
+      "Request": "Запросить",
+      "Execute": "Выполнить"
+    }
+  },
+  "MEDICALNET": {
+    "FIELDS": {
+      "medicalNetId": "ИД",
+      "actions": "Действия",
+      "code": "Код",
+      "title": "Название",
+      "appCode": "Код приложения",
+      "logo": "Логотип",
+      "notifications": "Уведомления",
+      "websiteUrl": "URL сайта",
+      "notifyEmail": "Email",
+      "notifyPhone": "Телефон",
+      "activeDate": "Активирована",
+      "license": "Лицензия"
+    },
+    "LICENSEDIALOG": {
+      "TITLE": "Лицензия сети",
+      "ID": "Идентификатор",
+      "OWNER": "Владелец",
+      "DATABASE": "Имя базы данных",
+      "STARTDATE": "Дата начала",
+      "ENDDATE": "Дата окончания",
+      "OPTIONS": "Опции",
+      "FEATURES": "Функции"
+    }
+  },
+  "MEDICALBRAND": {
+    "FIELDS": {
+      "medicalBrandId": "ИД",
+      "actions": "Действия",
+      "logo": "Лого",
+      "title": "Название",
+      "email": "Email",
+      "phone": "Телефон",
+      "code": "Код"
+    }
+  },
+  "NOTIFICATIONTEMPLATE": {
+    "FIELDS": {
+      "ntfTemplateClinicId": "ИД",
+      "actions": "Действия",
+      "description": "Наименование",
+      "notificationType": "Способ уведомления",
+      "medicalNetId": "Сеть клиник",
+      "clinicId": "Клиника",
+      "recordType": "Тип записи",
+      "langCode": "Язык",
+      "template": "Текстовый шаблон",
+      "templateHtml": "HTML шаблон",
+      "templates": "Шаблон"
+    },
+    "TITLE": "Шаблон сообщения",
+    "VARIABLES": "Переменные"
+  },
+  "WEBFORM": {
+    "FIELDS": {
+      "webFormId": "ИД",
+      "actions": "Действия",
+      "medicalNetId": "Сеть клиник",
+      "formUUID": "UUID формы",
+      "scope": "scope токена",
+      "title": "Заголовок",
+      "icon": "Иконка",
+      "control": "Элемент",
+      "position": "Позиция",
+      "isEnabled": "Включена"
+    },
+    "PREVIEW": "Предпросмотр"
+  },
+  "AGREEMENT": {
+    "FIELDS": {
+      "agreementId": "ИД",
+      "actions": "Действия",
+      "agreementTypeId": "Тип соглашения",
+      "medicalNetId": "Сеть клиник",
+      "platform": "Платформа",
+      "langCode": "Язык",
+      "description": "Описание",
+      "agreement": "Соглашение",
+      "sortOrder": "Порядок"
+    },
+    "TITLE": "Текст соглашения"
+  },
+  "RATELIMIT": {
+    "FIELDS": {
+      "rateLimitSettingsId": "ИД",
+      "actions": "Действия",
+      "routePath": "Маршрут",
+      "windowMs": "Окно мс",
+      "rateLimit": "Лимит",
+      "isEnabled": "Включен",
+      "limitReason": "Причина"
+    }
+  },
+  "MEDICALNETFAQ": {
+    "FIELDS": {
+      "medicalNetFaqId": "ИД",
+      "actions": "Действия",
+      "medicalNetId": "Сеть клиник",
+      "questionGroup": "Группа",
+      "question": "Вопрос",
+      "answer": "Ответ",
+      "langCode": "Язык",
+      "sortOrder": "Порядок"
+    },
+    "PREVIEW": "Предпросмотр",
+    "IMAGEGALLERY": "Галерея изображений"
+  },
+  "CLINICSPECIALIZATION": {
+    "FIELDS": {
+      "clinicSpecializationId": "ИД в МИС",
+      "actions": "Действия",
+      "name": "Наименование в МИС",
+      "specializationId": "Специальность"
+    }
+  },
+  "CLINICPLEXGRWEB": {
+    "FIELDS": {
+      "plExGrWebId": "ИД в МИС",
+      "actions": "Действия",
+      "code": "Код в МИС",
+      "specializationId": "Специальность"
+    }
+  },
+  "REPORT": {
+    "PERIOD": "Период отчета",
+    "MEDICALNET": "Сеть клиник",
+    "TOTAL": "Итого",
+    "sourceDistribution": {
+      "TITLE": "Распределение источников регистрации",
+      "SERIE": "Источник регистрации"
+    },
+    "ageDistribution": {
+      "TITLE": "Распределение возратных групп",
+      "SERIE": "Возрастная группа"
+    },
+    "visitDistribution": {
+      "TITLE": "Распределение записей на прием",
+      "SERIE": "Запись",
+      "ANONYMOUS": "Анонимная",
+      "MMK": "С ММК",
+      "MOBIMED": "Мобимед",
+      "MIS": "МИС"
+    },
+    "doctorCallDistribution": {
+      "TITLE": "Распределение вызовов на дом",
+      "SERIE": "Возрастная группа"
+    },
+    "visitDistributionByMonth": {
+      "TITLE": "Распределение записей на прием помесячно"
+    },
+    "emrRecordDistributionByMonth": {
+      "TITLE": "Распределение публикаций ЭМК помесячно"
+    },
+    "notificationDistribution": {
+      "TITLE": "Распределение уведомлений"
+    },
+    "notificationStatusDistribution": {
+      "TITLE": "Состояние очереди отправки",
+      "ERRORS": "ошибок в очереди",
+      "ERRORSINLOG": "ошибок в логе",
+      "RETRIES": "повторов",
+      "WAITING": "в ожидании"
+    }
+  },
+  "REVIEW": {
+    "TYPE": "Тип",
+    "DOCTOR": "Врач",
+    "EMR": "ЭМК",
+    "CLINIC": "Клиника",
+    "VISITDATE": "Дата посещения",
+    "VISITTYPE": "Тип посещения"
+  },
+  "TASKS": {
+    "CLEARDB": "Очистка БД",
+    "CLEARCACHE": "Очистка Кэша",
+    "WARMUPCACHE": "Прогрев Кэша"
+  },
+  "SETTING": {
+    "FIELDS": {
+      "actions": "Действия",
+      "groupName": "Группа",
+      "name": "Название",
+      "code": "Код",
+      "value": "Значение"
+    }
+  },
+  "CACHESETTINGS": {
+    "FIELDS": {
+      "memoryTTL": "ttl в памяти",
+      "hotSwap": "Hot swap"
+    },
+    "DETAILSDIALOG": {
+      "TITLE": "Ключи кэша",
+      "KEYS": "Ключей"
+    },
+    "DELETECONFIRM": "Удалить ключи?",
+    "DELETED": "Удалено {count} ключей"
+  },
+  "HL7SETTINGS": {
+    "FIELDS": {
+      "actions": "Действия",
+      "handleMessages": "Обрабатывать",
+      "logMessages": "Логировать"
+    }
+  },
+  "HL7LOG": {
+    "FIELDS": {
+      "hl7LogId": "ИД",
+      "addressHL7": "Адрес HL7",
+      "addressTelemed": "Адрес ТМД",
+      "message": "Сообщение",
+      "cdate": "Дата создания",
+      "hl7NotificationTypeId": "Тип"
+    }
+  },
+  "CONFIRMATIONCODESETTING": {
+    "FIELDS": {
+      "confirmationCodeType": "Тип кода",
+      "lifeTime": "Время жизни",
+      "maxTryCount": "Число попыток",
+      "nextCodeDelay": "Пауза генерации"
+    }
+  },
+  "CONFIRMATIONCODE": {
+    "FIELDS": {
+      "confirmationCodesId": "ИД",
+      "confirmationCodeTypesId": "Тип кода",
+      "userId": "Ид пользователя",
+      "code": "Код",
+      "customData": "Данные",
+      "creationDate": "Дата создания",
+      "lifeTime": "Время жизни",
+      "tryCnt": "Было попыток",
+      "maxTryCnt": "Макс попыток",
+      "nextCodeDelay": "Пауза генерации"
+    }
+  },
+  "SPAM": {
+    "FIELDS": {
+      "spamId": "ИД",
+      "ip": "IP",
+      "address": "Адрес",
+      "spamReasonId": "Причина",
+      "cdate": "Добавлен"
+    }
+  },
+  "EMRRECORD": {
+    "FIELDS": {
+      "emrRecordId": "ИД",
+      "actions": "Действия",
+      "id": "ИД МИС",
+      "description": "Описание",
+      "dateTime": "Дата",
+      "clinicId": "ИД клиники",
+      "doctorId": "ИД врача",
+      "visitId": "ИД визита",
+      "modelNameMultiLang": "Модель",
+      "specializationNameMultiLang": "Специальность",
+      "rating": "Рейтинг",
+      "reviewText": "Отзыв",
+      "reviewDate": "Дата отзыва",
+      "reviewSendDate": "Дата отправки отзыва в МИС"
+    }
+  },
+  "VISITRECORD": {
+    "FIELDS": {
+      "visitId": "ИД",
+      "actions": "Действия",
+      "emrId": "ИД ММК",
+      "doctorId": "ИД расписания",
+      "doctorName": "Расписание",
+      "doctorSpec": "Специальность",
+      "clinicId": "ИД клиники",
+      "planningId": "ИД визита",
+      "plExamName": "Вид приема",
+      "visitDate": "Дата визита",
+      "comment": "Комментарий",
+      "isCanceled": "Отмененный",
+      "cdate": "Дата создания",
+      "mobimedCr": "Мобимед",
+      "emrGroupId": "ИД профиля",
+      "notAccepted": "Не принят",
+      "medecinId": "ИД врача",
+      "iCameFlag": "Я пришел",
+      "patientChatUserId": "ИД пациента чата",
+      "medecinChatUserId": "ИД врача чата",
+      "duration": "Длительность",
+      "conferenceId": "ИД конференции",
+      "conferenceStatus": "Статус конференции",
+      "medecinsCreatorId": "ИД создавшего врача",
+      "patientFio": "ФИО пациента",
+      "fmInvoiceId": "ИД счета",
+      "isOutsidePlanning": "За пределами сетки",
+      "hasHl7": "Имеет HL7"
+    }
+  },
+  "LICENSELIMIT": {
+    "FIELDS": {
+      "code": "Тип лимита",
+      "currentValue": "Текущее значение",
+      "limitValue": "Лимит"
+    }
+  },
+  "AUDIT": {
+    "FIELDS": {
+      "timestamp": "Время",
+      "eventType": "Событие",
+      "serviceName": "Сервис",
+      "user": "Пользователь",
+      "message": "Сообщение",
+      "workspaceId": "Сеть",
+      "sessionId": "ID сессии",
+      "origin": "Источник",
+      "success": "Результат"
+    },
+    "DESCRIPTION": {
+      "TITLE": "Детализация"
+    },
+    "EVENT_TYPES": {
+      "Login": "Вход",
+      "Logout": "Выход",
+      "RefreshToken": "Обновление токена",
+      "RegisterInit": "Начало регистрации",
+      "RegisterConfirm": "Подтверждение регистрации",
+      "EmailConfirm": "Подтверждение email адреса",
+      "PhoneConfirm": "Подтверждение номера телефона",
+      "DeleteSession": "Удаление сессии",
+      "ProfileChange": "Изменение профиля"
+    },
+    "SERVICE_NAMES": {
+      "telemedialogAdmin": "Админка",
+      "telemedialogCentral": "Телемедиалог"
+    }
+  },
+  "CLIENTDATABASE": {
+    "TITLE": "Клиентские БД",
+    "FIELDS": {
+      "clientDatabaseId": "ИД",
+      "actions": "Действия",
+      "name": "Название"
+    }
+  },
+  "ENUMS": {
+    "UNKNOWN": "Неизвестно",
+    "RegistrationSource": {
+      "web": "Сайт",
+      "application": "Приложение",
+      "admin": "Админка",
+      "mmk": "ММК",
+      "soap": "МИС",
+      "esia": "ЕСИА",
+      "integrator": "Интегратор"
+    },
+    "AgeGroup": {
+      "Adult": "Взрослые",
+      "Child": "Дети",
+      "Any": "Любые",
+      "Unknown": "Не указано"
+    },
+    "Gender": {
+      "Male": "Мужской",
+      "Female": "Женский"
+    },
+    "NotificationType": {
+      "None": "Нет",
+      "Email": "Email",
+      "Sms": "СМС",
+      "FirebasePush": "Push",
+      "ExternalService": "Сервис",
+      "WhatsApp": "WhatsApp",
+      "VoiceCall": "Голосовой вызов"
+    },
+    "AccountRole": {
+      "unknown": "Не задано",
+      "patient": "Пациент",
+      "agent": "Агент",
+      "doctor": "Врач",
+      "operator": "Оператор",
+      "admin": "Админ",
+      "interpreter": "Переводчик",
+      "netAdmin": "Админ сети клиник",
+      "netMarketer": "Маркетолог сети клиник",
+      "insuranceAgent": "Страховой агент"
+    },
+    "PromoActionType": {
+      "Action": "Акция",
+      "Appeal": "Обращение",
+      "Personal": "Персональная"
+    },
+    "NotificationRecordType": {
+      "Unknown": "Нет",
+      "Visit": "Запись на прием",
+      "Mmk": "Запись эмк",
+      "Invoice": "Статус инвойса",
+      "GrantMmkAccess": "Доступ к ММК",
+      "ExternalServiceNotification": "Нотификация сервисам записи на прием",
+      "Confirmation": "Подтверждение",
+      "DoctorCall": "Вызов врача",
+      "PlanningRequest": "Заявка на запись в расписание",
+      "OnlineConsultation": "Онлайн консультация",
+      "PasswordChange": "Смена пароля",
+      "ApplicationError": "Сообщение об ошибке от пациента",
+      "LicenseLimit": "Лицензионный лимит",
+      "External": "Внешнее уведомление",
+      "AdminNotify": "Уведомление администратору",
+      "ApplicationReview": "Отзыв о приложении"
+    },
+    "EventType": {
+      "Unknown": "Не указано",
+      "MmkApproved": "Публикация записи ЭМК",
+      "MmkNotApproved": "Отмена записи ЭМК",
+      "NewVisit": "Создание записи на прием",
+      "UpdateVisit": "Изменение записи на прием",
+      "CancelVisit": "Отмена записи на прием",
+      "NetBlock": "Уведомление сети о блокировке",
+      "AcceptVisit": "Запись на прием подтверждена регистратурой",
+      "SendNotification": "Отправка вшеннего уведомления",
+      "SendSms": "Отправка смс",
+      "VisitAwaitingOfConfirmation": "Уведомление о предварительной записи",
+      "NewMmkCreatedForSpecifiedEmail": "Уведомление о создании ММК в клинике",
+      "ExternalServiceNotification": "Нотификация сервисам записи на прием",
+      "InternalServerError": "Внутренняя ошибка сервера",
+      "ChangePassword": "Смена пароля"
+    },
+    "NotificationStatus": {
+      "Created": "Создано",
+      "Sent": "Отправлено",
+      "Cancelled": "Отменено",
+      "NotEnoughMoney": "Недостаточно средств",
+      "NotificationCountLimitExceeded": "Превышен лимит на количество уведомлений",
+      "NotificationCostLimitExceeded": "Превышен лимит стоимости уведомления",
+      "ErrorWhileSending": "Ошибка при отправке",
+      "ErrorWhileVerifyingThePrice": "Ошибка при проверке цены",
+      "ForThisClinicYouCanNotSendSmsAboutVisitsToADoctor": "Для данной клиники запрешена отправка смс о приемах к врачу",
+      "ForThisClinicYouCanNotSendSmsAboutEmkRecords": "Для данной клиники запрешена отправка смс о записях ЭМК",
+      "ErrorWhileMovingToLog": "Ошибка при перемещении в журнал"
+    },
+    "SpamReason": {
+      "Registration": "Регистрация пользователя"
+    },
+    "LicenseLimitType": {
+      "RegisterMMK": "Регистрация ММК",
+      "SendSMS": "Отправка СМС"
+    },
+    "ConfirmationCodeType": {
+      "AuthorizationAsDoctor": "Авторизация врачом",
+      "ChangeEmailAddress": "Смена email адреса",
+      "ConfirmNewAccount": "Подтверждение учетной записи",
+      "ChangePhoneNumber": "Смена номера телефона",
+      "Authentication": "Аутентификация",
+      "ChangePassword": "Смена пароля"
+    }
+  }
+}

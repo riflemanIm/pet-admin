@@ -1,0 +1,806 @@
+{
+  "ERROR_CODES": {
+    "5XX": "Service temporairement suspendu"
+  },
+  "BOTTOM": {
+    "COPY": "© MEDIALOGIS S.A. 2024. Tous les droits sont réservés."
+  },
+  "SIGN": {
+    "SIGN": "Connexion",
+    "SIGNOUT": "Quitter",
+    "CH_BUTTON_SUBMIT": "Changer le mot de passe",
+    "CH_CONFIRM_CODE": "Code de confirmation de changement de mot de passe",
+    "CH_CONFIRM_CODE_SENT": "Le code de confirmation du mot de passe a été envoyé",
+    "CH_CONFIRM_CODE_SENT_CHANGE_PHONE": "Entrez le code pour vérifier votre téléphone mobile",
+    "CH_CONFIRM_CODE_SENT_CHANGE_EMAIL": "Entrez le code de confirmation par e-mail",
+    "CH_PASS_ACCOUNT_NOT_FOUND": "Cette adresse e-mail ou connexion n'existe pas",
+    "CH_PASS_BUTTON": "Changer le mot de passe",
+    "CH_PASS_OK": "Changement de mot de passe réussi",
+    "IN_BUTTON": "Accéder",
+    "IN_DOC_ENTER": "Accès pour les professionnels de santé",
+    "IN_ERRORS": "Quelque chose ne va pas avec votre nom d'utilisateur ou votre mot de passe  :-(",
+    "IN_FOGOT_PASS": "Mot de passe oublié ?",
+    "IN_HEAD": "Votre dossier médical en ligne pour vous et votre famille",
+    "IN_HEAD_DOC": "Espace destiné aux professionnels de santé.",
+    "IN_HEAD_DOC1": "Merci de vous identifier.",
+    "IN_PATIENT_ENTER": "Accès pour les patients",
+    "IN_EISA": "Accès à l'e-gouvernement",
+    "IN_TEXT": "{{defTitle}} est un service Web pour ceux valorisent leur santé et leur emploi du temps, prennent soin de leurs proches. Avec {{defTitle}}, vous pouvez gérer vos dossiers médicaux efficacement et en toute sécurité, vous inscrire à des consultations et des événements de traitement et de diagnostic pour vous-même et les membres de votre famille.",
+    "IN_PASS_HAS_BEEN_EXPIRED": "Veuillez changer le mot de passe temporaire",
+    "IN_EMPTY_CONFIRM_CODE": "Veuillez remplir le code de confirmation",
+    "UP_AGEEMENT": "J'accepte les termes de l'accord",
+    "UP_BUTTON": "S'inscrire",
+    "UP_BUTTON_SUBMIT": "Créer un compte",
+    "UP_CONFIRM_CODE": "Code de confirmation d'inscription",
+    "UP_EMAIL_ALREADY_REG": "Cet e-mail est déjà enregistré",
+    "UP_EMPTY_EMAIL": "Entrez votre e-mail",
+    "UP_EMPTY_PHONE": "Entrez votre téléphone",
+    "UP_EMPTY_EMAIL_OR_PHONE": "Entrez l'e-mail ou le téléphone",
+    "UP_NOT_VALID_EMAIL_OR_PHONE": "Email ou numéro de téléphone invalide",
+    "UP_EMPTY_PASS": "Entrez le mot de passe",
+    "UP_MAY_LOGIN": "Vous pouvez vous connecter",
+    "UP_NOT_MATCH_PASS": "Non concordance des mots de passe",
+    "UP_NOT_VALID_EMAIL": "E-mail non valide",
+    "UP_NOT_VALID_PHONE": "E-mail non  téléphone",
+    "UP_NOT_VALID_CONFIRM_CODE": "Entrez le code de confirmation",
+    "UP_NOT_VALID_PASS": "Le mot de passe doit contenir : au moins un chiffre, au moins une lettre latine en minuscule et majuscule, au moins un caractère spécial et doit comporter au moins 5 caractères",
+    "UP_OK": "Inscription réussie",
+    "UP_SUBMIT_CONFIRM": "Confirmer",
+    "UP_TITLE_LIC_AGR": "Accord de licence",
+    "UP_WRONG_LOG_OR_PASS": "L'e-mail ou la combinaison de mots de passe est incorrect",
+    "UP_NOT_VALID_NAME": "Nom invalide",
+    "UP_NOT_VALID_LAST_NAME": "Nom de famille invalide",
+    "UP_NOT_VALID_MIDDLE_NAME": "Deuxième prénom invalide",
+    "UP_ONE_DIGIT": "au moins un numéro",
+    "UP_ONE_UPPER_LETTER": "au moins une lettre latine majuscule",
+    "UP_ONE_LOWECASE_LAEER": "au moins une lettre latine minuscule",
+    "UP_ONE_SYMBOL": "au moins un caractère spécial",
+    "UP_MIN_LENGTH": "au moins 5 des caractères ci-dessus",
+    "UP_CONFIRM_CODE_WRONG": "Code de confirmation invalide",
+    "UP_HELPER_TEXT": "Pour fonctionner pleinement dans le système, vous devez vous inscrire. Après une inscription complète dans le système, vous aurez un dossier médical électronique et d'autres fonctions du système",
+    "UP_FILL_TEXT_AGEEMENT": "Remplissez le texte de l'accord"
+  },
+  "CONFIRM": {
+    "OK": "Confirmation réussie",
+    "ERR": "Quelque chose s'est mal passé"
+  },
+  "DELETEDIALOG": {
+    "TITLE": "Confirm delete",
+    "TEXT": "The record will be deleted"
+  },
+  "LIST": {
+    "ADD": "Add",
+    "EXPORT": "Export",
+    "IMPORT": "Import"
+  },
+  "LICENSE": {
+    "TITLE": "Enter license"
+  },
+  "COMMON": {
+    "SAVE": "Save",
+    "CLOSE": "Close",
+    "CANCEL": "Cancel",
+    "EDIT": "Edit",
+    "ADD": "Add",
+    "RECORDS": "Records",
+    "SPECIALIZATION": "Specialization",
+    "PLEXGRWEB": "Web group",
+    "CHECK": "Check",
+    "SETTINGS": "Settings",
+    "DELETE": "Delete",
+    "ACCEPT": "Accept",
+    "RECORDSAVED": "Record saved!",
+    "RECORDDELETED": "Record deleted!",
+    "RECORDCOPIED": "Record copied!",
+    "CHOOSEFILE": "Choose file",
+    "UPLOADZONE": "CLICK OR DROP FILE HERE",
+    "DELETE_CONFIRMATION": "Confirm record delete?",
+    "FILL_CODE": "Remplissez le Code",
+    "FILL_CODE_LANG": "Remplissez le code de langue",
+    "FILL_NAME": "Remplissez le Nom",
+    "FILL_PHONE": "Remplissez le téléphone",
+    "FILL_EMAIL": "Remplissez l'Email",
+    "FILL_POST_ADD": "Remplissez l'adresse Postale",
+    "FILL_URL": "Remplir l'URL",
+    "FILL_SPEC": "Remplir la Spécialité",
+    "FILL_LOGIN": "Entrez un e-mail ou un téléphone",
+    "FILL_PASS": "Remplissez le mot de passe",
+    "FILL_ANSW": "Remplissez la réponse",
+    "FILL_GROUP": "Remplissez le groupe",
+    "FILL_QUES": "Remplissez la question",
+    "FILL_DESCR": "Remplissez la Description",
+    "FILL_NOTI_TYPE": "Remplissez la méthode de notification",
+    "FILL_TEXT": "Remplir le texte",
+    "FILL_SORT": "Remplir le tri",
+    "FILL_DATE": "Remplissez la date",
+    "FILL_IMG": "Remplir l'image",
+    "FILL_FIRST_NAME": "Remplissez le Nom",
+    "FILL_LASRT_NAME": "Remplissez le nom de Famille",
+    "FILL_UUID": "Remplissez l'UUID du formulaire",
+    "FILL_TITLE": "Remplir le titre",
+    "FILL_CONTROL": "Remplissez le Nom de famille",
+    "FILL_ROUTE_PATH": "Fill in the route path (URL or * for all)",
+    "FILL_WINDOW_MS": "Fill in time in ms",
+    "FILL_RATE_LIMIT": "Fill in requests limit",
+    "WRONG_PASS": "le mot de Passe doit contenir au moins un nombre, au moins une lettre latine en minuscules et majuscules, au moins un caractère spécial et au moins 5 caractères",
+    "WRONG_PHONE": "mauvais téléphone",
+    "WRONG_EMAIL": "e-mail Incorrect",
+    "TEXT_TOO_LONG": "Text is too long"
+  },
+  "HEADER": {
+    "ExpandMenu": "Expand menu",
+    "CollapseMenu": "Collapse menu"
+  },
+  "SIDEBAR": {
+    "translation": "Translations",
+    "specialization": "Specialities",
+    "promo": "Promo actions",
+    "clinic": "Clinics",
+    "service": "Services",
+    "medical_net": "Nets",
+    "medical_brand": "Brands",
+    "notificationTemplate": "Notification templates",
+    "agreement": "Aagreements",
+    "medicalNetFaq": "FAQ",
+    "chat": "Chat",
+    "users": "Users",
+    "reviews": "Reviews",
+    "serviceTasks": "Service tasks",
+    "statistics": "Statistics",
+    "settings": "Settings",
+    "rateLimitSettings": "REST API limits",
+    "hl7Settings": "HL7 settings",
+    "cacheSettings": "Cache settings",
+    "confirmationCodeSettings": "Confirmation settings",
+    "webForms": "Web-forms",
+    "audit": "Audit",
+    "content": "Content",
+    "userData": "User data",
+    "manage": "Manage",
+    "reports": "Reports"
+  },
+  "USER": {
+    "TITLE": "Users",
+    "FIELDS": {
+      "userId": "ID",
+      "actions": "Actions",
+      "isActive": "Active",
+      "userType": "Role",
+      "email": "Email",
+      "phone": "Phone",
+      "mmk": "MMK",
+      "firstName": "First name",
+      "middleName": "Middle name",
+      "lastName": "Last name",
+      "fullName": "Full name",
+      "gender": "Gender",
+      "birthDate": "Birthdate",
+      "cdate": "Registered",
+      "registrationSourceId": "Source",
+      "lastActive": "Last active",
+      "hasDuplicate": "Douplicates",
+      "password": "Password"
+    },
+    "REPORT": "Report",
+    "TOKENDIALOG": {
+      "TITLE": "Open user accout for support",
+      "MEDICALNET": "Medical net",
+      "OPEN": "Open user account"
+    },
+    "DETAILSDIALOG": {
+      "TITLE": "User details",
+      "CONFIRMATION_CODES": "Confirmation codes",
+      "EMR": "EMR entries",
+      "SPAM": "Spam entries",
+      "VISIT": "Visits",
+      "NOTIFICATION_SETTINGS": "Notification settings",
+      "NOTIFICATIONS": "Notifications"
+    },
+    "MERGEDIALOG": {
+      "TITLE": "User merge",
+      "SOURCE": "Source",
+      "TARGET": "Target",
+      "ERROR_BOTH_MMK": "Both users have MMK",
+      "ERROR_BOTH_NOMMK": "Both users don't have MMK"
+    },
+    "ACTIVATE_TITLE": "Activate user?",
+    "ACTIVATE_TEXT": "Confirm user activation",
+    "MERGE": "Merge"
+  },
+  "USER_NOTIFICATION_SETTINGS": {
+    "FIELDS": {
+      "userNotificationId": "ID",
+      "recordType": "Record type",
+      "notificationType": "Notification type",
+      "isEnabled": "Is enabled",
+      "modifyDate": "Modified"
+    }
+  },
+  "NOTIFICATION": {
+    "FIELDS": {
+      "ntfNotifyId": "ID",
+      "userId": "User ID",
+      "clinicId": "Clinic ID",
+      "medicalNetId": "Medical Net ID",
+      "recId": "rec ID",
+      "recordType": "Record type",
+      "notifyDate": "Notify date",
+      "notifyText": "Notify text",
+      "customNotifyTitle": "Title",
+      "notificationType": "Notification type",
+      "eventType": "Event type",
+      "tryCount": "Trials count",
+      "tryDate": "Send trial date",
+      "status": "Status",
+      "tryNextDate": "Next trial date",
+      "notifyAddress": "Notify address",
+      "smsServiceId": "SMS service ID",
+      "smsPrice": "SMS price",
+      "sendErrorText": "Send error text",
+      "smsPriceCount": "SMS count",
+      "notifyTextHtml": "Notify HTML"
+    },
+    "USE_LOG": "From log"
+  },
+  "SPECIALIZATION": {
+    "FIELDS": {
+      "specializationId": "ID",
+      "actions": "Actions",
+      "code": "Name",
+      "sortOrder": "Order",
+      "shortDescription": "Short description",
+      "description": "Full description",
+      "image": "Phone image",
+      "largeImage": "Website image"
+    },
+    "IMPORTED": "The data is imported",
+    "ORDERDIALOG": {
+      "TITLE": "Speciality order",
+      "ACTION": "Please enter the order of specialization"
+    }
+  },
+  "PROMOACTION": {
+    "FIELDS": {
+      "medicalnetActionsId": "ID",
+      "actions": "Actions",
+      "medicalNetId": "Medical Net",
+      "actionType": "Type",
+      "description": "Caption",
+      "actionText": "Details",
+      "url": "URL",
+      "dateFrom": "From",
+      "dateTo": "To",
+      "sortOrder": "Order",
+      "image": "Image"
+    },
+    "IMAGE": {
+      "REQUIRED": "Image is required",
+      "INFO": "Image resolution and file size can be any.",
+      "FORMAT": "Format",
+      "RESIZEINFO": "Image will be resized to"
+    },
+    "RECOMMENDATIONS": "Recommendations"
+  },
+  "CLINIC": {
+    "FIELDS": {
+      "clinicId": "ID",
+      "actions": "Actions",
+      "code": "Code",
+      "title": "Title",
+      "email": "Email",
+      "isVisible": "Visible",
+      "url": "URL",
+      "postalAddress": "Postal address",
+      "phone": "Phone",
+      "isAnonymousVisitsProhibited": "Anonymouse visits prohibited",
+      "defaultMedicalNetId": "Default medical net",
+      "clientServiceId": "Service",
+      "medicalBrandId": "Brand",
+      "cdate": "Added",
+      "clientDatabaseId": "Client DB"
+    },
+    "DATATAB": "Clinic Data",
+    "PHOTOTAB": "Clinic Photo",
+    "CHECK": "Clinic check"
+  },
+  "SERVICE": {
+    "FIELDS": {
+      "id": "ID",
+      "actions": "Actions",
+      "label": "Name",
+      "state": "State",
+      "address": "Client address",
+      "fileServerAddress": "File server address",
+      "dbdataAddress": "DBData address",
+      "hl7Address": "HL7 address",
+      "discoveryAddress": "APPS discovery address",
+      "discoveryToken": "APPS discovery access token",
+      "webformAddress": "Webform server address",
+      "clientKey": "Client key",
+      "params": "Params (JSON)",
+      "versionDate": "Check date",
+      "componentStatus": "Check status"
+    },
+    "CHECK": "Service check",
+    "DBDATA": {
+      "REQUEST": "DBData request",
+      "RESPONSE": "DBData response",
+      "EXECUTE": "Execute",
+      "TEMPLATE": "Template"
+    },
+    "BROKER": {
+      "REQUEST": "Broker request",
+      "TYPE": "Type",
+      "RESPONSE": "Broker response",
+      "EXECUTE": "Execute"
+    },
+    "CONTROLLER": {
+      "TITLE": "Service control",
+      "Address": "Address",
+      "Connection": "Connection string",
+      "Version": "Version",
+      "Mode": "Mode",
+      "Logging": "Logging",
+      "Events": "Events",
+      "Command": "Command",
+      "CommandOutput": "Command output",
+      "Arguments": "Arguments",
+      "Request": "Request",
+      "Execute": "Execute"
+    }
+  },
+  "MEDICALNET": {
+    "FIELDS": {
+      "medicalNetId": "ID",
+      "actions": "Actions",
+      "code": "Code",
+      "title": "Title",
+      "appCode": "App code",
+      "logo": "Logo",
+      "notifications": "Notifications",
+      "websiteUrl": "Website URL",
+      "notifyEmail": "Email",
+      "notifyPhone": "Phone",
+      "activeDate": "Activated",
+      "license": "License"
+    },
+    "LICENSEDIALOG": {
+      "TITLE": "Medical Net License",
+      "ID": "Identifier",
+      "OWNER": "Owner",
+      "DATABASE": "Database name",
+      "STARTDATE": "Start date",
+      "ENDDATE": "End date",
+      "OPTIONS": "Options",
+      "FEATURES": "Features"
+    }
+  },
+  "MEDICALBRAND": {
+    "FIELDS": {
+      "medicalBrandId": "ID",
+      "actions": "Actions",
+      "logo": "Logo",
+      "title": "Title",
+      "email": "Email",
+      "phone": "Phone",
+      "code": "Code"
+    }
+  },
+  "NOTIFICATIONTEMPLATE": {
+    "FIELDS": {
+      "ntfTemplateClinicId": "ID",
+      "actions": "Actions",
+      "description": "Title",
+      "notificationType": "Notificaton type",
+      "medicalNetId": "Medical Net",
+      "clinicId": "Clinic",
+      "recordType": "Record type",
+      "langCode": "Language",
+      "template": "Text template",
+      "templateHtml": "HTML template",
+      "templates": "Template"
+    },
+    "TITLE": "Message template",
+    "VARIABLES": "Variables"
+  },
+  "WEBFORM": {
+    "FIELDS": {
+      "webFormId": "ID",
+      "actions": "Actions",
+      "medicalNetId": "Medical Net",
+      "formUUID": "Form UUID",
+      "scope": "Token scope",
+      "title": "Title",
+      "icon": "Icon",
+      "control": "Control",
+      "position": "Position",
+      "isEnabled": "Enabled"
+    },
+    "PREVIEW": "Preview"
+  },
+  "AGREEMENT": {
+    "FIELDS": {
+      "agreementId": "ID",
+      "actions": "Actions",
+      "agreementTypeId": "Agreement type",
+      "medicalNetId": "Medical Net",
+      "platform": "Platform",
+      "langCode": "Language",
+      "description": "Description",
+      "agreement": "Agreement",
+      "sortOrder": "Order"
+    },
+    "TITLE": "Agreement text"
+  },
+  "RATELIMIT": {
+    "FIELDS": {
+      "rateLimitSettingsId": "ID",
+      "actions": "Actions",
+      "routePath": "Route path",
+      "windowMs": "Window ms",
+      "rateLimit": "Limit",
+      "isEnabled": "Enabled",
+      "limitReason": "Reason"
+    }
+  },
+  "EMRRECORD": {
+    "FIELDS": {
+      "emrRecordId": "ID",
+      "actions": "Actions",
+      "id": "MIS ID",
+      "description": "Description",
+      "dateTime": "Date",
+      "clinicId": "Clinic ID",
+      "doctorId": "Medecins ID",
+      "visitId": "Visit ID",
+      "modelNameMultiLang": "Model",
+      "specializationNameMultiLang": "Speciality",
+      "rating": "Rating",
+      "reviewText": "Review",
+      "reviewDate": "Review date",
+      "reviewSendDate": "Review send date"
+    }
+  },
+  "VISITRECORD": {
+    "FIELDS": {
+      "visitId": "ID",
+      "actions": "Actions",
+      "emrId": "MMK id",
+      "doctorId": "Schedule ID",
+      "doctorName": "Schedule",
+      "doctorSpec": "Speciality",
+      "clinicId": "Clinic ID",
+      "planningId": "Planning ID",
+      "plExamName": "Exam name",
+      "visitDate": "Visit date",
+      "comment": "Comment",
+      "isCanceled": "Cancelled",
+      "cdate": "Create date",
+      "mobimedCr": "Mobimed",
+      "emrGroupId": "Profile ID",
+      "notAccepted": "Not accepted",
+      "medecinId": "Doctor ID",
+      "iCameFlag": "I came",
+      "patientChatUserId": "Patient chat ID",
+      "medecinChatUserId": "Doctor chat ID",
+      "duration": "Duration",
+      "conferenceId": "Conference ID",
+      "conferenceStatus": "Conference status",
+      "medecinsCreatorId": "Doctor creator ID",
+      "patientFio": "Patient identifiers",
+      "fmInvoiceId": "Invoice ID",
+      "isOutsidePlanning": "Outside planning",
+      "hasHl7": "Has HL7"
+    }
+  },
+  "LICENSELIMIT": {
+    "FIELDS": {
+      "code": "Limit type",
+      "currentValue": "Current value",
+      "limitValue": "Limit"
+    }
+  },
+  "AUDIT": {
+    "FIELDS": {
+      "timestamp": "Time",
+      "eventType": "Event",
+      "serviceName": "Service",
+      "user": "User",
+      "message": "Message",
+      "workspaceId": "Net",
+      "sessionId": "ID session",
+      "origin": "Origin",
+      "success": "Result"
+    },
+    "DESCRIPTION": {
+      "TITLE": "Details"
+    },
+    "EVENT_TYPES": {
+      "Login": "Login",
+      "Logout": "Logout",
+      "RefreshToken": "Token refresh",
+      "RegisterInit": "Registration start",
+      "RegisterConfirm": "Registration confirm",
+      "EmailConfirm": "Email address confirm",
+      "PhoneConfirm": "Phone number confirm",
+      "DeleteSession": "Session deletion",
+      "ProfileChange": "Profile change"
+    },
+    "SERVICE_NAMES": {
+      "telemedialogAdmin": "Admin",
+      "telemedialogCentral": "Telemedialog"
+    }
+  },
+  "MEDICALNETFAQ": {
+    "FIELDS": {
+      "medicalNetFaqId": "ID",
+      "actions": "Actions",
+      "medicalNetId": "Medical Net",
+      "questionGroup": "Group",
+      "question": "Question",
+      "answer": "Answer",
+      "langCode": "Language",
+      "sortOrder": "Order"
+    },
+    "PREVIEW": "Preview",
+    "IMAGEGALLERY": "Image gallery"
+  },
+  "CLINICSPECIALIZATION": {
+    "FIELDS": {
+      "clinicSpecializationId": "MIS ID",
+      "actions": "Actions",
+      "name": "MIS Name",
+      "specializationId": "Specialization"
+    }
+  },
+  "CLINICPLEXGRWEB": {
+    "FIELDS": {
+      "plExGrWebId": "MIS ID",
+      "actions": "Actions",
+      "code": "MIS code",
+      "specializationId": "Specialization"
+    }
+  },
+  "REPORT": {
+    "PERIOD": "Report dates",
+    "MEDICALNET": "Medical net",
+    "TOTAL": "Total",
+    "sourceDistribution": {
+      "TITLE": "Registration source distribution",
+      "SERIE": "Registration source"
+    },
+    "ageDistribution": {
+      "TITLE": "Age group distribution",
+      "SERIE": "Age group"
+    },
+    "visitDistribution": {
+      "TITLE": "Visit distribution",
+      "SERIE": "Record",
+      "ANONYMOUS": "Anonymous",
+      "MMK": "With MMK",
+      "MOBIMED": "Mobimed",
+      "MIS": "MIS"
+    },
+    "doctorCallDistribution": {
+      "TITLE": "Doctor call distribution",
+      "SERIE": "Age group"
+    },
+    "visitDistributionByMonth": {
+      "TITLE": "Visit distribution by mounth"
+    },
+    "emrRecordDistributionByMonth": {
+      "TITLE": "EMR publication distribution by month"
+    },
+    "notificationDistribution": {
+      "TITLE": "Notification distribution"
+    },
+    "notificationStatusDistribution": {
+      "TITLE": "Notification queue state",
+      "ERRORS": "errors in queue",
+      "ERRORSINLOG": "errors in log",
+      "RETRIES": "retries",
+      "WAITING": "in wait"
+    }
+  },
+  "REVIEW": {
+    "TYPE": "Type",
+    "DOCTOR": "Doctor",
+    "EMR": "EMR",
+    "CLINIC": "Clinic",
+    "VISITDATE": "Visit date",
+    "VISITTYPE": "Visit type"
+  },
+  "TASKS": {
+    "CLEARDB": "Clear DB",
+    "CLEARCACHE": "Clear Cache",
+    "WARMUPCACHE": "Warm up Cache"
+  },
+  "SETTING": {
+    "FIELDS": {
+      "actions": "Actions",
+      "groupName": "Group",
+      "name": "Title",
+      "code": "Code",
+      "value": "Value"
+    }
+  },
+  "CACHESETTINGS": {
+    "FIELDS": {
+      "memoryTTL": "ttl в памяти",
+      "hotSwap": "Hot swap"
+    },
+    "DETAILSDIALOG": {
+      "TITLE": "Cache Keys",
+      "KEYS": "Keys"
+    },
+    "DELETECONFIRM": "Delete keys?",
+    "DELETED": "Deleted {count} keys"
+  },
+  "HL7SETTINGS": {
+    "FIELDS": {
+      "actions": "Actions",
+      "handleMessages": "Handle",
+      "logMessages": "Log"
+    }
+  },
+  "HL7LOG": {
+    "FIELDS": {
+      "hl7LogId": "ID",
+      "addressHL7": "HL7 address",
+      "addressTelemed": "TMD address",
+      "message": "Message",
+      "cdate": "Creation date",
+      "hl7NotificationTypeId": "Type"
+    }
+  },
+  "CONFIRMATIONCODESETTING": {
+    "FIELDS": {
+      "confirmationCodeType": "Code type",
+      "lifeTime": "Life time",
+      "maxTryCount": "Max trials",
+      "nextCodeDelay": "Next code delay"
+    }
+  },
+  "CONFIRMATIONCODE": {
+    "FIELDS": {
+      "confirmationCodesId": "ID",
+      "confirmationCodeTypesId": "Code type",
+      "userId": "User ID",
+      "code": "Code",
+      "customData": "Data",
+      "creationDate": "Create date",
+      "lifeTime": "Life time",
+      "tryCnt": "Curent trials",
+      "maxTryCnt": "Max trials",
+      "nextCodeDelay": "Next code delay"
+    }
+  },
+  "SPAM": {
+    "FIELDS": {
+      "spamId": "ID",
+      "ip": "IP",
+      "address": "Address",
+      "spamReasonId": "Reason",
+      "cdate": "Added"
+    }
+  },
+  "CLIENTDATABASE": {
+    "TITLE": "Client DB",
+    "FIELDS": {
+      "clientDatabaseId": "ID",
+      "actions": "Actions",
+      "name": "Name"
+    }
+  },
+  "ENUMS": {
+    "UNKNOWN": "Unknown",
+    "RegistrationSource": {
+      "web": "Website",
+      "application": "Application",
+      "admin": "Admin",
+      "mmk": "MMK",
+      "soap": "MIS",
+      "esia": "ESIA",
+      "integrator": "Integrator"
+    },
+    "AgeGroup": {
+      "Adult": "Adults",
+      "Child": "Children",
+      "Any": "Any",
+      "Unknown": "Unknown"
+    },
+    "Gender": {
+      "Male": "Male",
+      "Female": "Female"
+    },
+    "NotificationType": {
+      "None": "None",
+      "Email": "Email",
+      "Sms": "SMS",
+      "FirebasePush": "Push",
+      "ExternalService": "Service",
+      "WhatsApp": "WhatsApp",
+      "VoiceCall": "Voice call"
+    },
+    "AccountRole": {
+      "unknown": "not set",
+      "patient": "Patient",
+      "agent": "Agent",
+      "doctor": "Doctor",
+      "operator": "Operator",
+      "admin": "Admin",
+      "interpreter": "Interpreter",
+      "netAdmin": "Net admin",
+      "netMarketer": "Net marketer",
+      "insuranceAgent": "Insurance agent"
+    },
+    "PromoActionType": {
+      "Action": "Action",
+      "Appeal": "Appeal",
+      "Personal": "Personal"
+    },
+    "NotificationRecordType": {
+      "Unknown": "No",
+      "Visit": "Visit",
+      "Mmk": "EMR",
+      "Invoice": "Invoice status",
+      "GrantMmkAccess": "MMK access",
+      "ExternalServiceNotification": "External service notification",
+      "Confirmation": "Confirmation",
+      "DoctorCall": "Doctor call",
+      "PlanningRequest": "Planning request",
+      "OnlineConsultation": "Online consultations",
+      "PasswordChange": "Password change",
+      "ApplicationError": "Application error from user",
+      "LicenseLimit": "License limit",
+      "External": "External notification",
+      "AdminNotify": "Admin notification",
+      "ApplicationReview": "Application review"
+    },
+    "EventType": {
+      "Unknown": "Unknown",
+      "MmkApproved": "EMR record approved",
+      "MmkNotApproved": "EMR record cancelled",
+      "NewVisit": "New visit",
+      "UpdateVisit": "Visit updated",
+      "CancelVisit": "Visit cancelled",
+      "NetBlock": "Medical net is blocked",
+      "AcceptVisit": "Visit accepted",
+      "SendNotification": "External notification",
+      "SendSms": "External SMS",
+      "VisitAwaitingOfConfirmation": "Visit awaiting of confirmation",
+      "NewMmkCreatedForSpecifiedEmail": "New MMK created in clinic",
+      "ExternalServiceNotification": "External service notification",
+      "InternalServerError": "Internal server error",
+      "ChangePassword": "Password change"
+    },
+    "NotificationStatus": {
+      "Created": "Created",
+      "Sent": "Sent",
+      "Cancelled": "Cancelled",
+      "NotEnoughMoney": "Not enough money",
+      "NotificationCountLimitExceeded": "Notification count limit exceeded",
+      "NotificationCostLimitExceeded": "Notification cost limit exceeded",
+      "ErrorWhileSending": "Send error",
+      "ErrorWhileVerifyingThePrice": "Price verification error",
+      "ForThisClinicYouCanNotSendSmsAboutVisitsToADoctor": "For this clinic you can not send sms about visits to a doctor",
+      "ForThisClinicYouCanNotSendSmsAboutEmkRecords": "For this clinic you can not send sms about EMK records",
+      "ErrorWhileMovingToLog": "Error moving to log"
+    },
+    "SpamReason": {
+      "Registration": "User registration"
+    },
+    "LicenseLimitType": {
+      "RegisterMMK": "MMK registration",
+      "SendSMS": "Send SMS"
+    },
+    "ConfirmationCodeType": {
+      "AuthorizationAsDoctor": "Authorization as doctor",
+      "ChangeEmailAddress": "Change email address",
+      "ConfirmNewAccount": "Confirm new account",
+      "ChangePhoneNumber": "Change phone number",
+      "Authentication": "Authentication",
+      "ChangePassword": "Change password"
+    }
+  }
+}
