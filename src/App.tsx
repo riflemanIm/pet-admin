@@ -1,6 +1,6 @@
 // project import
 import { AppLanguageProvider } from './context/LanguageContext';
-import ThemeCustomization from './themes';
+import AppThemeProvider from './theme';
 import ScrollTop from './components/ScrollTop';
 import { UserProvider } from './context/UserContext';
 import Routing from './routes';
@@ -10,13 +10,13 @@ import Routing from './routes';
 export default function App() {
   return (
     <AppLanguageProvider>
-      <ThemeCustomization>
+      <AppThemeProvider>
         <UserProvider>
           <ScrollTop>
             <Routing />
           </ScrollTop>
         </UserProvider>
-      </ThemeCustomization>
+      </AppThemeProvider>
     </AppLanguageProvider>
   );
 }

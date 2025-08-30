@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 // styles
 
 //Sidebar structure
-import structure from '../Sidebar/SidebarStructure';
+import structure from '../SidebarStructure';
 
 interface IRoute {
   name: string;

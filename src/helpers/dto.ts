@@ -25,3 +25,11 @@ export interface LoginResponseDto extends RefreshTokenDto {
   // isPasswordExpired?: boolean;
   // isTwoFactorAuth?: boolean;
 }
+
+export interface UserDto {
+  userId?: number;
+  password?: string;
+  email?: string;
+  name: string | null;
+  balance: any; // Decimal; вернётся строкой
+}
