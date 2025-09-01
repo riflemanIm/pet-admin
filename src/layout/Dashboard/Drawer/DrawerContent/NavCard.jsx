@@ -26,8 +26,8 @@ export default function NavCard() {
           </Typography>
         </Stack>
         <AnimateButton>
-          <Button component={Link} target="_blank" href="https://dev.mobimed.ru" variant="contained" color="success" size="small">
-            Pro
+          <Button component={Link} target="_blank" href="/" variant="contained" color="success" size="small">
+            Admin
           </Button>
         </AnimateButton>
       </Stack>

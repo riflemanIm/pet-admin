@@ -113,7 +113,7 @@ export default function Widget({
               }}
             >
               <Box sx={{ display: 'flex', alignItems: 'flex-end', flex: 1, minWidth: 0 }}>
-                <Typography variant="h6" color="text.secondary" noWrap>
+                <Typography variant="h3" color="text.secondary" noWrap mb={3}>
                   {title}
                 </Typography>
                 {subtitle ? (

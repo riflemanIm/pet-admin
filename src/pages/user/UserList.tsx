@@ -14,10 +14,6 @@ const UserList = (): JSX.Element => {
   const dispatch = useManagementDispatch();
   const st = useManagementState();
 
-  React.useEffect(() => {
-    actions.doFetch()(dispatch);
-  }, []);
-
   const columns: GridColDef<UserDto>[] = [
     { field: 'userId', headerName: 'ID', width: 80, type: 'number' },
     {
@@ -50,7 +46,7 @@ const UserList = (): JSX.Element => {
 
   return (
     <Stack spacing={3}>
-      <Widget inheritHeight noBodyPadding>
+      <Widget inheritHeight noBodyPadding title="Пользователи">
         <BaseListGrid<UserDto>
           columns={columns}
           idField="userId"
