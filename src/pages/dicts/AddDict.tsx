@@ -52,12 +52,11 @@ function AddDictComp({ entity }: { entity: EntityName }) {
 
 export default function AddDict(): JSX.Element {
   const { entity } = useParams<{ entity: EntityName }>();
-  // на всякий — дефолт
-  const e = (entity ?? 'ages') as EntityName;
+  if (!entity) throw new Error('Missing :entity in route');
 
   return (
-    <DictProvider entity={e}>
-      <AddDictComp entity={e} />
+    <DictProvider entity={entity}>
+      <AddDictComp entity={entity} />
     </DictProvider>
   );
 }

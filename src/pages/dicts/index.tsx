@@ -5,11 +5,11 @@ import DictList from './DictList';
 
 export default function DictListPage(): JSX.Element {
   const { entity } = useParams<{ entity: EntityName }>();
-  const e = (entity ?? 'ages') as EntityName;
+  if (!entity) throw new Error('Missing :entity in route');
 
   return (
-    <DictProvider entity={e}>
-      <DictList entity={e} />
+    <DictProvider entity={entity}>
+      <DictList entity={entity} />
     </DictProvider>
   );
 }

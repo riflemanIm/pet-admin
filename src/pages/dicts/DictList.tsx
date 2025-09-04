@@ -15,7 +15,7 @@ export default function DictList({ entity }: { entity: EntityName }) {
   const { state } = { state: useDictState() };
   const { rows, totalCount, loading, errorMessage } = state;
   const { entity: ctxEntity } = useDictMeta();
-
+  console.log('ctxEntity }', ctxEntity);
   // safety: если вложили не тем entity, можно подсветить
   const title = useMemo(() => {
     const map: Record<EntityName, string> = {
