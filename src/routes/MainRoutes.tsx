@@ -13,7 +13,9 @@ const EditUser = Loadable(lazy(() => import('pages/user/EditUser')));
 const AddUser = Loadable(lazy(() => import('pages/user/AddUser')));
 // render - sample page
 const SamplePage = Loadable(lazy(() => import('pages/extra-pages/sample-page')));
-
+const DictList = Loadable(lazy(() => import('pages/dicts')));
+const AddDict = Loadable(lazy(() => import('pages/dicts/AddDict')));
+const EditDict = Loadable(lazy(() => import('pages/dicts/EditDict')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -44,6 +46,110 @@ const MainRoutes = {
       path: 'User/:id/edit',
       element: <EditUser />
     },
+    {
+      path: 'ages/list',
+      element: <DictList />
+    },
+    {
+      path: 'ages/add',
+      element: <AddDict />
+    },
+    {
+      path: 'ages/edit/:id',
+      element: <EditDict />
+    },
+
+    {
+      path: 'taste/list',
+      element: <DictList />
+    },
+    {
+      path: 'taste/add',
+      element: <AddDict />
+    },
+    {
+      path: 'taste/edit/:id',
+      element: <EditDict />
+    },
+
+    {
+      path: 'designedFor/list',
+      element: <DictList />
+    },
+    {
+      path: 'designedFor/add',
+      element: <AddDict />
+    },
+    {
+      path: 'designedFor/edit/:id',
+      element: <EditDict />
+    },
+
+    {
+      path: 'ingredient/list',
+      element: <DictList />
+    },
+    {
+      path: 'ingredient/add',
+      element: <AddDict />
+    },
+    {
+      path: 'ingredient/edit/:id',
+      element: <EditDict />
+    },
+
+    {
+      path: 'hardness/list',
+      element: <DictList />
+    },
+    {
+      path: 'hardness/add',
+      element: <AddDict />
+    },
+    {
+      path: 'hardness/edit/:id',
+      element: <EditDict />
+    },
+
+    {
+      path: 'packages/list',
+      element: <DictList />
+    },
+    {
+      path: 'packages/add',
+      element: <AddDict />
+    },
+    {
+      path: 'packages/edit/:id',
+      element: <EditDict />
+    },
+
+    {
+      path: 'petSizes/list',
+      element: <DictList />
+    },
+    {
+      path: 'petSizes/add',
+      element: <AddDict />
+    },
+    {
+      path: 'petSizes/edit/:id',
+      element: <EditDict />
+    },
+
+    {
+      path: 'specialNeeds/list',
+      element: <DictList />
+    },
+    {
+      path: 'specialNeeds/add',
+      element: <AddDict />
+    },
+    {
+      path: 'specialNeeds/edit/:id',
+      element: <EditDict />
+    },
+
     {
       path: 'dashboard',
       children: [

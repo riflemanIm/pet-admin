@@ -33,9 +33,14 @@ export interface UserDto {
   name: string | null;
   balance: any; // Decimal; вернётся строкой
 }
+
 export interface ListDto<T> {
   rows: T[];
   totalCount: number;
+}
+export interface DictDto {
+  id?: number;
+  name: string | null;
 }
 
 export type OrderDirection = 'asc' | 'desc' | null | undefined;
