@@ -1,14 +1,14 @@
 // src/pages/user/AddUser.tsx
-import React, { useMemo } from 'react';
 import { Box, Button, Stack, TextField } from '@mui/material';
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Widget from '../../components/Widget';
-import { useManagementDispatch, useManagementState, actions } from '../../context/ManagementContext';
+import { actions, ManagementProvider, useManagementDispatch, useManagementState } from '../../context/ManagementContext';
 import { UserDto } from '../../helpers/dto';
 import useForm from '../../hooks/useForm';
 import validate from './validation';
 
-const AddUser = (): JSX.Element => {
+const AddUserComp = (): JSX.Element => {
   const navigate = useNavigate();
   const dispatch = useManagementDispatch();
   const { saveLoading, errorMessage } = useManagementState();
@@ -85,4 +85,10 @@ const AddUser = (): JSX.Element => {
   );
 };
 
-export default AddUser;
+export default function AddUser(): JSX.Element {
+  return (
+    <ManagementProvider>
+      <AddUserComp />
+    </ManagementProvider>
+  );
+}

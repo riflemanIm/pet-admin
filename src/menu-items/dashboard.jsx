@@ -48,6 +48,14 @@ const dashboard = {
       icon: icons.UserOutlined,
       breadcrumbs: false
     },
+    {
+      id: 'food',
+      title: 'Каталог',
+      type: 'item',
+      url: '/food',
+      icon: icons.UserOutlined,
+      breadcrumbs: false
+    },
     // --- справочники ---
     {
       id: 'ages',

@@ -17,8 +17,19 @@ const DictList = Loadable(lazy(() => import('pages/dicts')));
 const AddDict = Loadable(lazy(() => import('pages/dicts/AddDict')));
 const EditDict = Loadable(lazy(() => import('pages/dicts/EditDict')));
 
+const FoodList = Loadable(lazy(() => import('pages/food/FoodList')));
+const AddFood = Loadable(lazy(() => import('pages/food/AddFood')));
+const EditFood = Loadable(lazy(() => import('pages/food/EditFood')));
+function FoodLayout() {
+  return (
+    <FoodProvider>
+      <Outlet />
+    </FoodProvider>
+  );
+}
 // (опционально) если хочешь поддержать старые пути, подключим Navigate:
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
+import { FoodProvider } from 'context/FoodContext';
 
 const MainRoutes = {
   path: '/',
@@ -32,7 +43,16 @@ const MainRoutes = {
     { path: 'User/list', element: <User /> },
     { path: 'User/add', element: <AddUser /> },
     { path: 'User/:id/edit', element: <EditUser /> },
-
+    {
+      path: 'food',
+      element: <FoodLayout />, // <- провайдер здесь
+      children: [
+        { path: '', element: <FoodList /> },
+        { path: 'list', element: <FoodList /> },
+        { path: 'add', element: <AddFood /> },
+        { path: 'edit/:id', element: <EditFood /> }
+      ]
+    },
     // ===== УНИВЕРСАЛЬНЫЕ СЛОВАРИ (один набор роутов на все сущности) =====
     { path: 'dicts/:entity/list', element: <DictList /> },
     { path: 'dicts/:entity/add', element: <AddDict /> },

@@ -31,7 +31,7 @@ export const DictProvider = ({
     initialData
   );
 
-  const baseUrl = `/dicts/${entity}`;
+  const baseUrl = `/admin/dicts/${entity}`;
   const actions = React.useMemo(() => genericActions<DictDto, DictDispatch>(baseUrl, 'id'), [baseUrl]);
 
   return <Ctx.Provider value={{ state, dispatch, actions, entity, baseUrl }}>{children}</Ctx.Provider>;
