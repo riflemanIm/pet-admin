@@ -84,15 +84,15 @@ export const FoodProvider = ({ children }: { children: React.ReactNode }) => {
   const refThunk = React.useMemo(
     () =>
       doGenericReferenceLists<Dispatch>({
-        ages: '/dicts/ages',
-        taste: '/dicts/taste',
-        designedFor: '/dicts/designedFor',
-        ingredient: '/dicts/ingredient',
-        hardness: '/dicts/hardness',
-        packages: '/dicts/packages',
-        petSizes: '/dicts/petSizes',
-        specialNeeds: '/dicts/specialNeeds',
-        typeTreats: '/dicts/typeTreats' // если добавишь на бэке
+        ages: '/admin/dicts/ages',
+        taste: '/admin/dicts/taste',
+        designedFor: '/admin/dicts/designedFor',
+        ingredient: '/admin/dicts/ingredient',
+        hardness: '/admin/dicts/hardness',
+        packages: '/admin/dicts/packages',
+        petSizes: '/admin/dicts/petSizes',
+        specialNeeds: '/admin/dicts/specialNeeds',
+        typeTreats: '/admin/dicts/typeTreats' // если добавишь на бэке
       }),
     []
   );
@@ -141,4 +141,8 @@ function useCtx() {
 export const useFoodState = () => useCtx().state;
 export const useFoodDispatch = () => useCtx().dispatch;
 export const useFoodActions = () => useCtx().actions;
-export const useFoodRefs = () => ({ refs: useCtx().refs, reloadRefs: useCtx().reloadRefs });
+export const useFoodRefs = () => {
+  const ctx = React.useContext(Ctx);
+  if (!ctx) throw new Error('FoodContext used outside of FoodProvider');
+  return { refs: ctx.refs, reloadRefs: ctx.reloadRefs };
+};

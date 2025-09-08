@@ -1,102 +1,162 @@
-import { Box, Button, FormControl, FormControlLabel, InputLabel, MenuItem, Select, Stack, Switch, TextField } from '@mui/material';
-import { useMemo } from 'react';
+// pages/food/AddFood.tsx
+import React from 'react';
+import { Box, Button, Grid, Stack, TextField, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import Widget from '../../components/Widget';
-import { useFoodActions, useFoodDispatch } from '../../context/FoodContext';
-import useForm from '../../hooks/useForm';
-
-const AddFoodComp = (): JSX.Element => {
+import { useFoodActions } from '../../context/FoodContext';
+import { useFoodRefs } from '../../context/FoodContext';
+import { MultiDict, SingleDict } from './_formParts';
+import ImageField from './_ImageField';
+const AddFood = (): JSX.Element => {
   const navigate = useNavigate();
-  const dispatch = useFoodDispatch();
   const actions = useFoodActions();
+  const { refs } = useFoodRefs();
 
-  const onSuccess = () => navigate('/food/list');
-  const onError = (msg: string) => console.error('Create food error:', msg);
+  const [form, setForm] = React.useState({
+    artikul: '',
+    img: null,
+    title: '',
+    type: 'Treat' as 'Treat' | 'Souvenirs' | 'DryFood',
+    price: 0,
+    priceDiscount: 0,
+    stock: 0,
+    isPromo: false,
+    tasteId: null as number | null,
+    ingredientId: null as number | null,
+    hardnessId: null as number | null,
+    designedForIds: [] as number[],
+    ageIds: [] as number[],
+    typeTreatIds: [] as number[],
+    petSizeIds: [] as number[],
+    packageIds: [] as number[],
+    specialNeedsIds: [] as number[],
+    imgsAdd: [] as string[]
+  });
 
-  const save = () => {
-    const payload: any = {
-      ...values,
-      price: Number(values.price) || 0,
-      priceDiscount: Number(values.priceDiscount) || 0,
-      weight: values.weight ? Number(values.weight) : null,
-      quantity: values.quantity ? Number(values.quantity) : null,
-      quantityPackages: values.quantityPackages ? Number(values.quantityPackages) : null,
-      expiration: values.expiration ? Number(values.expiration) : null,
-      stock: values.stock ? Number(values.stock) : 0,
-      // name->null для пустых строк
-      title: values.title?.trim() || null,
-      artikul: values.artikul?.trim() || null,
-      annotation: values.annotation?.trim() || null,
-      packageSize: values.packageSize?.trim() || null,
-      feature: values.feature?.trim() || null
-    };
-    actions.doCreate(payload, onSuccess, onError)(dispatch);
+  const onChange = (k: string) => (e: any) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const [imgFile, setImgFile] = React.useState<File | null>(null);
+
+  const save = async () => {
+    const fd = new FormData();
+    // простые поля
+    Object.entries(form).forEach(([k, v]) => {
+      if (v == null) return;
+      if (Array.isArray(v)) {
+        fd.append(k, JSON.stringify(v)); // массивы — как JSON
+      } else {
+        fd.append(k, String(v));
+      }
+    });
+    if (imgFile) fd.append('imgFile', imgFile);
+
+    actions.doCreate(
+      fd as any, // genericActions шлёт как есть
+      () => navigate('/food/list'),
+      (msg) => console.error(msg)
+    );
   };
-
-  const { values, errors, handleChange } = useForm<any, any>(save, () => ({}));
-  const saveDisabled = useMemo(() => false, []);
 
   return (
     <Widget>
-      <Box display="grid" gridTemplateColumns="1fr 1fr" gap={2} maxWidth={1000}>
-        <TextField name="artikul" label="Артикул" value={values.artikul ?? ''} onChange={handleChange} />
-        <TextField name="title" label="Название" value={values.title ?? ''} onChange={handleChange} />
-
-        <TextField name="price" label="Цена" value={values.price ?? ''} onChange={handleChange} />
-        <TextField name="priceDiscount" label="Скидка" value={values.priceDiscount ?? ''} onChange={handleChange} />
-
-        <FormControlLabel
-          control={
-            <Switch checked={!!values.vat} onChange={(e) => handleChange({ target: { name: 'vat', value: e.target.checked } } as any)} />
-          }
-          label="VAT"
-        />
-        <FormControlLabel
-          control={
-            <Switch
-              checked={!!values.isPromo}
-              onChange={(e) => handleChange({ target: { name: 'isPromo', value: e.target.checked } } as any)}
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6}>
+          <Stack spacing={2}>
+            {/* ... taste/ingredient/hardness ... */}
+            <ImageField
+              value={form.img || null}
+              onFileSelect={(file) => setImgFile(file)}
+              onClear={() => setForm((f) => ({ ...f, img: null }))}
             />
-          }
-          label="Промо"
-        />
+          </Stack>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Stack spacing={2}>
+            <TextField label="Артикул" value={form.artikul} onChange={onChange('artikul')} />
+            <TextField label="Название" value={form.title} onChange={onChange('title')} />
+            <TextField select label="Тип" value={form.type} onChange={onChange('type')}>
+              <MenuItem value="Treat">Treat</MenuItem>
+              <MenuItem value="Souvenirs">Souvenirs</MenuItem>
+              <MenuItem value="DryFood">DryFood</MenuItem>
+            </TextField>
+            <TextField type="number" label="Цена" value={form.price} onChange={onChange('price')} />
+            <TextField type="number" label="Скидка" value={form.priceDiscount} onChange={onChange('priceDiscount')} />
+            <TextField type="number" label="Сток" value={form.stock} onChange={onChange('stock')} />
+          </Stack>
+        </Grid>
 
-        <TextField name="img" label="Img" value={values.img ?? ''} onChange={handleChange} />
-        <TextField name="imgUrl" label="Img URL" value={values.imgUrl ?? ''} onChange={handleChange} />
-        <TextField name="ozonId" label="Ozon ID" value={values.ozonId ?? ''} onChange={handleChange} />
+        <Grid item xs={12} md={6}>
+          <Stack spacing={2}>
+            <SingleDict label="Вкус" options={refs.taste} value={form.tasteId} onChange={(id) => setForm((f) => ({ ...f, tasteId: id }))} />
+            <SingleDict
+              label="Ингредиент"
+              options={refs.ingredient}
+              value={form.ingredientId}
+              onChange={(id) => setForm((f) => ({ ...f, ingredientId: id }))}
+            />
+            <SingleDict
+              label="Твёрдость"
+              options={refs.hardness}
+              value={form.hardnessId}
+              onChange={(id) => setForm((f) => ({ ...f, hardnessId: id }))}
+            />
+          </Stack>
+        </Grid>
 
-        <TextField name="feature" label="Характеристики" value={values.feature ?? ''} onChange={handleChange} />
-        <TextField name="weight" label="Вес (г)" value={values.weight ?? ''} onChange={handleChange} />
-        <TextField name="quantity" label="Кол-во" value={values.quantity ?? ''} onChange={handleChange} />
-        <TextField name="quantityPackages" label="Кол-во упак." value={values.quantityPackages ?? ''} onChange={handleChange} />
+        <Grid item xs={12}>
+          <Stack spacing={2}>
+            <MultiDict
+              label="Назначение"
+              options={refs.designedFor}
+              value={form.designedForIds}
+              onChange={(ids) => setForm((f) => ({ ...f, designedForIds: ids }))}
+            />
+            <MultiDict
+              label="Возраст"
+              options={refs.ages}
+              value={form.ageIds}
+              onChange={(ids) => setForm((f) => ({ ...f, ageIds: ids }))}
+            />
+            <MultiDict
+              label="Тип лакомств"
+              options={refs.typeTreats}
+              value={form.typeTreatIds}
+              onChange={(ids) => setForm((f) => ({ ...f, typeTreatIds: ids }))}
+            />
+            <MultiDict
+              label="Размер питомца"
+              options={refs.petSizes}
+              value={form.petSizeIds}
+              onChange={(ids) => setForm((f) => ({ ...f, petSizeIds: ids }))}
+            />
+            <MultiDict
+              label="Упаковки"
+              options={refs.packages}
+              value={form.packageIds}
+              onChange={(ids) => setForm((f) => ({ ...f, packageIds: ids }))}
+            />
+            <MultiDict
+              label="Особые нужды"
+              options={refs.specialNeeds}
+              value={form.specialNeedsIds}
+              onChange={(ids) => setForm((f) => ({ ...f, specialNeedsIds: ids }))}
+            />
+          </Stack>
+        </Grid>
 
-        <FormControl fullWidth>
-          <InputLabel id="type-label">Тип</InputLabel>
-          <Select labelId="type-label" name="type" label="Тип" value={values.type ?? ''} onChange={handleChange}>
-            <MenuItem value="Treat">Treat</MenuItem>
-            <MenuItem value="Souvenirs">Souvenirs</MenuItem>
-            <MenuItem value="DryFood">DryFood</MenuItem>
-          </Select>
-        </FormControl>
-
-        <TextField name="expiration" label="Годность (дней)" value={values.expiration ?? ''} onChange={handleChange} />
-        <TextField name="annotation" multiline minRows={3} label="Описание" value={values.annotation ?? ''} onChange={handleChange} />
-        <TextField name="packageSize" label="Размер упаковки" value={values.packageSize ?? ''} onChange={handleChange} />
-
-        <TextField name="stock" label="Сток" value={values.stock ?? ''} onChange={handleChange} />
-
-        <Stack direction="row" gap={2} justifyContent="flex-end" gridColumn="1/-1">
-          <Button variant="outlined" onClick={() => navigate('/food/list')}>
-            Cancel
-          </Button>
-          <Button variant="contained" onClick={save} disabled={saveDisabled}>
-            Save
-          </Button>
-        </Stack>
-      </Box>
+        <Grid item xs={12}>
+          <Stack direction="row" justifyContent="flex-end" spacing={2}>
+            <Button variant="outlined" onClick={() => navigate('/food/list')}>
+              Отмена
+            </Button>
+            <Button variant="contained" onClick={save}>
+              Сохранить
+            </Button>
+          </Stack>
+        </Grid>
+      </Grid>
     </Widget>
   );
 };
-export default function AddFood(): JSX.Element {
-  return <AddFoodComp />;
-}
+
+export default AddFood;

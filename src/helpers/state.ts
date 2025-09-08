@@ -386,7 +386,7 @@ export const doGenericCreate =
         type: 'FORM_CREATE_STARTED'
       });
       await axios
-        .post(url, values)
+        .post(url, values, values instanceof FormData ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined)
         .then((res) => {
           dispatch({
             type: 'FORM_CREATE_SUCCESS',
@@ -418,7 +418,7 @@ export const doGenericUpdate =
         type: 'FORM_UPDATE_STARTED'
       });
       await axios
-        .put(`${url}/${id}`, values)
+        .put(`${url}/${id}`, values, values instanceof FormData ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined)
         .then(() => {
           dispatch({
             type: 'FORM_UPDATE_SUCCESS',
