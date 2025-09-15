@@ -5,7 +5,7 @@ import { GridValidRowModel } from '@mui/x-data-grid';
 export type FoodState = GenericState<FoodDto>;
 type Action = { type: GenericActionType; payload?: any };
 type Dispatch = React.Dispatch<Action>;
-
+export const imgApiUrl = import.meta.env.VITE_IMG_URL;
 // DTO для админки
 export interface FoodDto extends GridValidRowModel {
   id?: number;

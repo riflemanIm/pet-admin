@@ -4,11 +4,12 @@ import { Box, Button, Chip, Stack, TextField } from '@mui/material';
 import { DataGrid, GridColDef, GridPaginationModel, GridSortModel } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
 import Widget from '../../components/Widget';
-import { useFoodActions, useFoodDispatch, useFoodState } from '../../context/FoodContext';
+import { imgApiUrl, useFoodActions, useFoodDispatch, useFoodState } from '../../context/FoodContext';
 import { useFoodRefs } from '../../context/FoodContext';
-
+import EditIcon from '@mui/icons-material/Edit';
 type Row = {
   id: number;
+  img?: string | null;
   artikul?: string | null;
   title?: string | null;
   type?: 'Treat' | 'Souvenirs' | 'DryFood';
@@ -98,13 +99,27 @@ const FoodList = (): JSX.Element => {
     () => [
       { field: 'id', headerName: 'ID', width: 80 },
       {
+        field: '__actions',
+        headerName: 'Действия',
+        width: 140,
+        sortable: false,
+        filterable: false,
+        renderCell: (params) => (
+          <Button startIcon={<EditIcon />} size="small" variant="outlined" onClick={() => navigate(`/food/edit/${params.row.id}`)}>
+            Ред.
+          </Button>
+        )
+      },
+      {
         field: 'img',
         headerName: 'Фото',
         width: 80,
         sortable: false,
         filterable: false,
         renderCell: (p) =>
-          p.value ? <img src={`/uploads/${p.value}`} alt="" style={{ width: 56, height: 56, objectFit: 'cover', borderRadius: 8 }} /> : null
+          p.value ? (
+            <img src={`${imgApiUrl}/${p.value}`} alt="" style={{ width: 56, height: 56, objectFit: 'cover', borderRadius: 8 }} />
+          ) : null
       },
       { field: 'artikul', headerName: 'Артикул', width: 140 },
       { field: 'title', headerName: 'Название', flex: 1, minWidth: 220 },
@@ -180,18 +195,6 @@ const FoodList = (): JSX.Element => {
         flex: 1,
         minWidth: 220,
         renderCell: (p) => chipsByIds(refs?.specialNeeds, (p?.row as any)?.specialNeedsIds)
-      },
-      {
-        field: '__actions',
-        headerName: 'Действия',
-        width: 140,
-        sortable: false,
-        filterable: false,
-        renderCell: (params) => (
-          <Button size="small" variant="outlined" onClick={() => navigate(`/food/edit/${params.row.id}`)}>
-            Редактировать
-          </Button>
-        )
       }
     ],
     [navigate, refs]

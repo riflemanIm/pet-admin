@@ -1,6 +1,7 @@
 // pages/food/_ImageField.tsx
 import * as React from 'react';
 import { Box, Button, Stack } from '@mui/material';
+import { imgApiUrl } from 'context/FoodContext';
 
 export default function ImageField({
   value, // string | null (имя файла)
@@ -40,7 +41,7 @@ export default function ImageField({
 
       {value ? (
         <Box sx={{ width: 200, height: 200, borderRadius: 2, overflow: 'hidden', border: '1px solid #eee' }}>
-          <img src={`/uploads/${value}`} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={`${imgApiUrl}/${value}`} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </Box>
       ) : null}
     </Stack>
