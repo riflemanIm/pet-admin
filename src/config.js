@@ -9,7 +9,7 @@ const config = {
     email: import.meta.env.VITE_LOGIN || '',
     password: import.meta.env.VITE_PASS || ''
   },
-  defaultPath: '/dashboard/default',
+  defaultPath: '/food',
   fontFamily: `'Public Sans', sans-serif`,
   i18n: 'en',
   miniDrawer: false,

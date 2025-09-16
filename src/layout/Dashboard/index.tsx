@@ -28,7 +28,6 @@ export default function DashboardLayout() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [downXL]);
   const { isAuthenticated } = useUserState();
-  console.log('isAuthenticated', isAuthenticated);
 
   // const rootRoute = () => {
   //   if (!isAuthenticated) return '/login';

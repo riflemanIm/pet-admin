@@ -36,13 +36,6 @@ const MainRoutes = {
   element: <Dashboard />,
   children: [
     { path: '/', element: <DashboardDefault /> },
-    { path: 'color', element: <Color /> },
-
-    // Users
-    { path: 'User', element: <User /> },
-    { path: 'User/list', element: <User /> },
-    { path: 'User/add', element: <AddUser /> },
-    { path: 'User/:id/edit', element: <EditUser /> },
     {
       path: 'food',
       element: <FoodLayout />, // <- провайдер здесь
@@ -50,9 +43,22 @@ const MainRoutes = {
         { path: '', element: <FoodList /> },
         { path: 'list', element: <FoodList /> },
         { path: 'add', element: <AddFood /> },
-        { path: 'edit/:id', element: <EditFood /> }
+        { path: ':id/edit', element: <EditFood /> }
       ]
     },
+    //{ path: 'color', element: <Color /> },
+
+    // Users
+    {
+      path: 'user',
+      element: <User />,
+      children: [
+        { path: 'list', element: <User /> },
+        { path: 'add', element: <AddUser /> },
+        { path: ':id/edit', element: <EditUser /> }
+      ]
+    },
+
     // ===== УНИВЕРСАЛЬНЫЕ СЛОВАРИ (один набор роутов на все сущности) =====
     { path: 'dicts/:entity/list', element: <DictList /> },
     { path: 'dicts/:entity/add', element: <AddDict /> },
@@ -90,13 +96,13 @@ const MainRoutes = {
 
     { path: 'specialNeeds/list', element: <Navigate to="/dicts/specialNeeds/list" replace /> },
     { path: 'specialNeeds/add', element: <Navigate to="/dicts/specialNeeds/add" replace /> },
-    { path: 'specialNeeds/edit/:id', element: <Navigate to="/dicts/specialNeeds/edit/:id" replace /> },
+    { path: 'specialNeeds/edit/:id', element: <Navigate to="/dicts/specialNeeds/edit/:id" replace /> }
 
     // misc
-    { path: 'dashboard', children: [{ path: 'default', element: <DashboardDefault /> }] },
-    { path: 'sample-page', element: <SamplePage /> },
-    { path: 'shadow', element: <Shadow /> },
-    { path: 'typography', element: <Typography /> }
+    //{ path: 'dashboard', children: [{ path: 'default', element: <DashboardDefault /> }] }
+    // { path: 'sample-page', element: <SamplePage /> },
+    // { path: 'shadow', element: <Shadow /> },
+    // { path: 'typography', element: <Typography /> }
   ]
 };
 

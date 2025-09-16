@@ -1,35 +1,16 @@
 // pages/food/FoodList.tsx
 import React, { useEffect, useMemo, useState } from 'react';
 import { Box, Button, Chip, Stack, TextField } from '@mui/material';
-import { DataGrid, GridColDef, GridPaginationModel, GridSortModel } from '@mui/x-data-grid';
+import { DataGrid, GridActionsCellItem, GridColDef, GridPaginationModel, GridRowParams, GridSortModel } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
 import Widget from '../../components/Widget';
 import { imgApiUrl, useFoodActions, useFoodDispatch, useFoodState } from '../../context/FoodContext';
 import { useFoodRefs } from '../../context/FoodContext';
 import EditIcon from '@mui/icons-material/Edit';
-type Row = {
-  id: number;
-  img?: string | null;
-  artikul?: string | null;
-  title?: string | null;
-  type?: 'Treat' | 'Souvenirs' | 'DryFood';
-  price?: number;
-  priceDiscount?: number;
-  stock?: number;
-  isPromo?: boolean;
-  createdAt?: string;
+import { FoodDto } from 'helpers/dto';
+import { BaseListGrid } from 'components/BaseListGrid';
+import { Add as AddIcon, CreateOutlined as CreateIcon, DeleteOutlined as DeleteIcon } from '@mui/icons-material';
 
-  tasteId?: number | null;
-  ingredientId?: number | null;
-  hardnessId?: number | null;
-
-  designedForIds?: number[];
-  ageIds?: number[];
-  typeTreatIds?: number[];
-  petSizeIds?: number[];
-  packageIds?: number[];
-  specialNeedsIds?: number[];
-};
 // безопасно достаём имя по id
 // нормализуем к Number с безопасной обработкой null/undefined
 const asNum = (v: unknown): number | null => {
@@ -51,14 +32,14 @@ const nameOrId = (list?: { id: number | string; name: string }[], id?: number | 
 };
 
 // для множественных
-const chipsByIds = (list?: { id: number | string; name: string }[], ids?: Array<number | string>) =>
-  !Array.isArray(list) || !Array.isArray(ids) || ids.length === 0 ? null : (
-    <Stack direction="row" gap={0.5} flexWrap="wrap">
-      {ids.map((id) => (
-        <Chip key={String(id)} size="small" label={nameOrId(list, id)} />
-      ))}
-    </Stack>
-  );
+// const chipsByIds = (list?: { id: number | string; name: string }[], ids?: Array<number | string>) =>
+//   !Array.isArray(list) || !Array.isArray(ids) || ids.length === 0 ? null : (
+//     <Stack direction="row" gap={0.5} flexWrap="wrap">
+//       {ids.map((id) => (
+//         <Chip key={String(id)} size="small" label={nameOrId(list, id)} />
+//       ))}
+//     </Stack>
+//   );
 
 const FoodList = (): JSX.Element => {
   const navigate = useNavigate();
@@ -66,7 +47,7 @@ const FoodList = (): JSX.Element => {
   const actions = useFoodActions();
   const { refs } = useFoodRefs();
 
-  const { rows, totalCount, loading, errorMessage } = useFoodState();
+  const state = useFoodState();
 
   const [filter, setFilter] = useState('');
   const [pagination, setPagination] = useState<GridPaginationModel>({ page: 0, pageSize: 10 });
@@ -77,6 +58,7 @@ const FoodList = (): JSX.Element => {
     // eslint-disable-next-line no-console
     console.log('taste len:', refs?.taste?.length, 'ingredient len:', refs?.ingredient?.length, 'hardness len:', refs?.hardness?.length);
   }, [refs]);
+
   useEffect(() => {
     const orderBy = sortModel[0]?.field ?? 'id';
     const order = (sortModel[0]?.sort ?? 'desc') as 'asc' | 'desc';
@@ -95,20 +77,37 @@ const FoodList = (): JSX.Element => {
       </Stack>
     );
 
-  const columns = useMemo<GridColDef<Row>[]>(
+  const columns = useMemo<GridColDef<FoodDto>[]>(
     () => [
       { field: 'id', headerName: 'ID', width: 80 },
+      // {
+      //   field: '__actions',
+      //   headerName: 'Действия',
+      //   width: 140,
+      //   sortable: false,
+      //   filterable: false,
+      //   renderCell: (params) => (
+      //     <Button startIcon={<EditIcon />} size="small" variant="outlined" onClick={() => navigate(`/food/edit/${params.row.id}`)}>
+      //       Ред.
+      //     </Button>
+      //   )
+      // },
       {
-        field: '__actions',
-        headerName: 'Действия',
-        width: 140,
+        field: 'actions',
+        headerName: 'Actions',
+        width: 120,
         sortable: false,
         filterable: false,
-        renderCell: (params) => (
-          <Button startIcon={<EditIcon />} size="small" variant="outlined" onClick={() => navigate(`/food/edit/${params.row.id}`)}>
-            Ред.
-          </Button>
-        )
+        type: 'actions',
+        getActions: (params: GridRowParams<FoodDto>) => [
+          <GridActionsCellItem key="edit" icon={<CreateIcon />} label="Edit" onClick={() => navigate(`/food/${params.id}/edit`)} />,
+          <GridActionsCellItem
+            key="del"
+            icon={<DeleteIcon />}
+            label="Delete"
+            onClick={() => actions.doOpenConfirm(params.id as number)(dispatch)}
+          />
+        ]
       },
       {
         field: 'img',
@@ -199,35 +198,38 @@ const FoodList = (): JSX.Element => {
     ],
     [navigate, refs]
   );
+  const handleDelete = () =>
+    actions
+      .doDelete(state.idToDelete as number)(dispatch)
+      .then(() => actions.doFetch()(dispatch));
+  const closeDelete = () => actions.doCloseConfirm()(dispatch);
 
   return (
-    <Widget>
-      <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2} gap={2}>
-        <TextField size="small" label="Поиск" value={filter} onChange={(e) => setFilter(e.target.value)} sx={{ width: 320 }} />
-        <Button variant="contained" onClick={() => navigate('/food/add')}>
-          Добавить
-        </Button>
-      </Stack>
+    <Stack spacing={3}>
+      <Widget inheritHeight noBodyPadding title="Каталог">
+        <Stack direction="row" justifyContent="space-between" alignItems="center" mb={2} gap={2}>
+          <TextField size="small" label="Поиск" value={filter} onChange={(e) => setFilter(e.target.value)} sx={{ width: 320 }} />
+        </Stack>
 
-      <Box sx={{ height: 700, width: '100%' }}>
-        <DataGrid
-          rows={(rows ?? []) as Row[]}
-          getRowId={(r) => (r as any)?.id}
+        <BaseListGrid<FoodDto>
           columns={columns}
-          rowCount={totalCount}
-          loading={loading}
-          paginationMode="server"
-          sortingMode="server"
-          pageSizeOptions={[10, 25, 50]}
-          paginationModel={pagination}
-          onPaginationModelChange={setPagination}
-          sortModel={sortModel}
-          onSortModelChange={setSortModel}
+          idField="id"
+          exportName="food"
+          storagePrefix="food"
+          state={state}
+          dispatch={dispatch}
+          doFetch={actions.doFetch}
+          defaultSort={[{ field: 'id', sort: 'desc' }]}
+          startActions={
+            <Button size="small" color="primary" href="#food/add" startIcon={<AddIcon />}>
+              Добавить
+            </Button>
+          }
+          onDelete={handleDelete}
+          onCloseDelete={closeDelete}
         />
-      </Box>
-
-      {errorMessage ? <div style={{ color: '#d32f2f', marginTop: 8 }}>{errorMessage}</div> : null}
-    </Widget>
+      </Widget>
+    </Stack>
   );
 };
 

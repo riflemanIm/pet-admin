@@ -10,7 +10,7 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter'; // hardness
 import InventoryIcon from '@mui/icons-material/Inventory'; // packages
 import PetsIcon from '@mui/icons-material/Pets'; // petSizes
 import HealingIcon from '@mui/icons-material/Healing'; // specialNeeds
-
+import CategoryIcon from '@mui/icons-material/Category';
 // icons
 const icons = {
   DashboardOutlined,
@@ -22,7 +22,8 @@ const icons = {
   FitnessCenterIcon,
   InventoryIcon,
   PetsIcon,
-  HealingIcon
+  HealingIcon,
+  CategoryIcon
 };
 
 // ==============================|| MENU ITEMS - DASHBOARD ||============================== //
@@ -32,14 +33,14 @@ const dashboard = {
   title: 'Navigation',
   type: 'group',
   children: [
-    {
-      id: 'dashboard',
-      title: 'Dashboard',
-      type: 'item',
-      url: '/dashboard/default',
-      icon: icons.DashboardOutlined,
-      breadcrumbs: false
-    },
+    // {
+    //   id: 'dashboard',
+    //   title: 'Dashboard',
+    //   type: 'item',
+    //   url: '/dashboard/default',
+    //   icon: icons.DashboardOutlined,
+    //   breadcrumbs: false
+    // },
     {
       id: 'user',
       title: 'Пользователи',
@@ -53,7 +54,7 @@ const dashboard = {
       title: 'Каталог',
       type: 'item',
       url: '/food',
-      icon: icons.UserOutlined,
+      icon: icons.CategoryIcon,
       breadcrumbs: false
     },
     // --- справочники ---
