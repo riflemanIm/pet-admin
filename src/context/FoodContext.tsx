@@ -1,3 +1,4 @@
+// src/context/FoodContext.tsx
 import React from 'react';
 import { genericReducer, GenericState, initialState, GenericActionType, genericActions, doGenericReferenceLists } from '../helpers/state';
 import { GridValidRowModel } from '@mui/x-data-grid';
@@ -6,9 +7,12 @@ export type FoodState = GenericState<FoodDto>;
 type Action = { type: GenericActionType; payload?: any };
 type Dispatch = React.Dispatch<Action>;
 export const imgApiUrl = import.meta.env.VITE_IMG_URL;
+
 // DTO для админки
 export interface FoodDto extends GridValidRowModel {
   id?: number;
+
+  // базовые поля
   artikul?: string | null;
   title?: string | null;
   price?: number;
@@ -16,8 +20,25 @@ export interface FoodDto extends GridValidRowModel {
   vat?: boolean;
   isPromo?: boolean;
   ozonId?: string | null;
+
+  // главное изображение
   img?: string | null;
+
+  // дополнительные изображения (10 отдельных полей, как просили)
+  img1?: string | null;
+  img2?: string | null;
+  img3?: string | null;
+  img4?: string | null;
+  img5?: string | null;
+  img6?: string | null;
+  img7?: string | null;
+  img8?: string | null;
+  img9?: string | null;
+  img10?: string | null;
+
+  // внешние ссылки на картинки (если используются)
   imgUrl?: string | null;
+
   feature?: string | null;
   weight?: number | null;
   quantity?: number | null;
@@ -26,12 +47,15 @@ export interface FoodDto extends GridValidRowModel {
   expiration?: number | null;
   annotation?: string | null;
   packageSize?: string | null;
+
+  // связи 1→N
   tasteId?: number | null;
   ingredientId?: number | null;
   hardnessId?: number | null;
+
   stock?: number;
 
-  // M:N как массивы id
+  // связи M:N как массивы id
   designedForIds?: number[];
   ageIds?: number[];
   typeTreatIds?: number[];
@@ -39,8 +63,6 @@ export interface FoodDto extends GridValidRowModel {
   packageIds?: number[];
   specialNeedsIds?: number[];
 
-  // доп. изображения
-  imgsAdd?: string[];
   createdAt?: string;
   publishedAt?: string;
 }
@@ -100,27 +122,21 @@ export const FoodProvider = ({ children }: { children: React.ReactNode }) => {
   // обёртка, которая реально вызывает thunk с диспатчером
   const reloadRefs = React.useCallback(async () => {
     try {
-      // используем настоящий dispatch — thunk сам сделает axios.all(...)
       const payload = await new Promise<Record<string, { id: number; name: string }[]>>((resolve, reject) => {
-        // перехватываем один раз результат REFERENCE_FETCH_SUCCESS,
-        // чтобы забрать данные в локальный setRefs и не трогать список.
         const interceptor: Dispatch = (action: any) => {
           if (action?.type === 'REFERENCE_FETCH_SUCCESS') {
             resolve(action.payload);
           } else if (action?.type === 'REFERENCE_FETCH_ERROR') {
             reject(action.payload);
           } else {
-            // прокидываем остальные экшены в основной редьюсер,
-            // они не должны затирать rows
             dispatch(action);
           }
         };
         refThunk()(interceptor as any);
       });
       setRefs(payload);
-    } catch (e) {
-      // опционально: показать уведомление
-      // console.error('Ref load error', e);
+    } catch {
+      // можно показать уведомление
     }
   }, [refThunk, dispatch]);
 

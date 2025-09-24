@@ -417,6 +417,7 @@ export const doGenericUpdate =
       dispatch({
         type: 'FORM_UPDATE_STARTED'
       });
+
       await axios
         .put(`${url}/${id}`, values, values instanceof FormData ? { headers: { 'Content-Type': 'multipart/form-data' } } : undefined)
         .then(() => {

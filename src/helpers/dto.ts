@@ -33,29 +33,7 @@ export interface UserDto {
   name: string | null;
   balance: any; // Decimal; вернётся строкой
 }
-export interface FoodDto {
-  id?: number;
-  img?: string | null;
-  artikul?: string | null;
-  title?: string | null;
-  type?: 'Treat' | 'Souvenirs' | 'DryFood';
-  price?: number;
-  priceDiscount?: number;
-  stock?: number;
-  isPromo?: boolean;
-  createdAt?: string;
 
-  tasteId?: number | null;
-  ingredientId?: number | null;
-  hardnessId?: number | null;
-
-  designedForIds?: number[];
-  ageIds?: number[];
-  typeTreatIds?: number[];
-  petSizeIds?: number[];
-  packageIds?: number[];
-  specialNeedsIds?: number[];
-}
 //
 export interface ListDto<T> {
   rows: T[];
