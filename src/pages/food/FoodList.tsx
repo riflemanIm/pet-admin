@@ -109,7 +109,7 @@ const FoodList = (): JSX.Element => {
       {
         field: 'img',
         headerName: 'Фото',
-        width: 220,
+        width: 80,
         sortable: false,
         filterable: false,
         renderCell: (p) => {
