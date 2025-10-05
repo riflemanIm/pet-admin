@@ -3,12 +3,12 @@ import { Box, Button, Stack, TextField } from '@mui/material';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Widget from '../../components/Widget';
-import { actions, ManagementProvider, useManagementDispatch, useManagementState } from '../../context/ManagementContext';
+import { actions, useManagementDispatch, useManagementState } from '../../context/ManagementContext';
 import { UserDto } from '../../helpers/dto';
 import useForm from '../../hooks/useForm';
 import validate from './validation';
 
-const AddUserComp = (): JSX.Element => {
+export default function AddUser(): JSX.Element {
   const navigate = useNavigate();
   const dispatch = useManagementDispatch();
   const { saveLoading, errorMessage } = useManagementState();
@@ -82,13 +82,5 @@ const AddUserComp = (): JSX.Element => {
         {errorMessage ? <span style={{ color: '#d32f2f' }}>{errorMessage}</span> : null}
       </Box>
     </Widget>
-  );
-};
-
-export default function AddUser(): JSX.Element {
-  return (
-    <ManagementProvider>
-      <AddUserComp />
-    </ManagementProvider>
   );
 }

@@ -75,7 +75,7 @@ const Ctx = React.createContext<{
   actions: ReturnType<typeof genericActions<FoodDto, Dispatch>>;
   refs: Partial<
     Record<
-      'ages' | 'taste' | 'designedFor' | 'ingredient' | 'hardness' | 'packages' | 'petSizes' | 'specialNeeds' | 'typeTreats',
+      'ages' | 'taste' | 'designedFor' | 'ingredient' | 'hardness' | 'packages' | 'petSizes' | 'specialNeeds' | 'typeTreat',
       { id: number; name: string }[]
     >
   >;
@@ -96,7 +96,7 @@ export const FoodProvider = ({ children }: { children: React.ReactNode }) => {
   const [refs, setRefs] = React.useState<
     Partial<
       Record<
-        'ages' | 'taste' | 'designedFor' | 'ingredient' | 'hardness' | 'packages' | 'petSizes' | 'specialNeeds' | 'typeTreats',
+        'ages' | 'taste' | 'designedFor' | 'ingredient' | 'hardness' | 'packages' | 'petSizes' | 'specialNeeds' | 'typeTreat',
         { id: number; name: string }[]
       >
     >
@@ -114,7 +114,7 @@ export const FoodProvider = ({ children }: { children: React.ReactNode }) => {
         packages: '/admin/dicts/packages',
         petSizes: '/admin/dicts/petSizes',
         specialNeeds: '/admin/dicts/specialNeeds',
-        typeTreats: '/admin/dicts/typeTreats' // если добавишь на бэке
+        typeTreat: '/admin/dicts/typeTreat' // если добавишь на бэке
       }),
     []
   );

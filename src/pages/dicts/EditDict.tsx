@@ -3,23 +3,24 @@ import { Box, Button, Stack, TextField } from '@mui/material';
 import { useEffect, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Widget from '../../components/Widget';
-import { DictProvider, EntityName, useDictActions, useDictDispatch, useDictState } from '../../context/DictContext';
+import { useDictActions, useDictDispatch, useDictMeta, useDictState } from '../../context/DictContext';
 import { DictDto } from '../../helpers/dto';
 import useForm from '../../hooks/useForm';
 import validate from './validation';
 
-function EditDictComp({ entity }: { entity: EntityName }) {
+export default function EditDict(): JSX.Element {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDictDispatch();
   const actions = useDictActions();
+  const { entity } = useDictMeta();
   const { current, saveLoading } = useDictState();
 
   useEffect(() => {
     if (id) actions.doFind(Number(id))(dispatch);
   }, [id, actions, dispatch]);
 
-  const onSuccess = () => navigate(`/dicts/${entity}/list`);
+  const onSuccess = () => navigate(`/dicts/${entity}`);
   const onError = (msg: string) => console.error('Update dict error:', msg);
 
   const save = () => {
@@ -60,16 +61,5 @@ function EditDictComp({ entity }: { entity: EntityName }) {
         </Stack>
       </Box>
     </Widget>
-  );
-}
-
-export default function EditDict(): JSX.Element {
-  const { entity } = useParams<{ entity: EntityName }>();
-  if (!entity) throw new Error('Missing :entity in route');
-
-  return (
-    <DictProvider entity={entity}>
-      <EditDictComp entity={entity} />
-    </DictProvider>
   );
 }

@@ -3,7 +3,16 @@ import React from 'react';
 import { genericReducer, GenericState, initialState, GenericActionType, genericActions } from '../helpers/state';
 import { DictDto } from '../helpers/dto';
 
-export type EntityName = 'ages' | 'taste' | 'designedFor' | 'ingredient' | 'hardness' | 'packages' | 'petSizes' | 'specialNeeds';
+export type EntityName =
+  | 'ages'
+  | 'taste'
+  | 'designedFor'
+  | 'ingredient'
+  | 'hardness'
+  | 'packages'
+  | 'petSizes'
+  | 'specialNeeds'
+  | 'typeTreat';
 
 type DictState = GenericState<DictDto>;
 type Action = { type: GenericActionType; payload?: any };

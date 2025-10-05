@@ -235,7 +235,7 @@ const EditFood = (): JSX.Element => {
             <MultiDict label="Возраст" options={refs.ages} value={form.ageIds} onChange={(ids) => set('ageIds', ids)} />
             <MultiDict
               label="Тип лакомств"
-              options={refs.typeTreats}
+              options={refs.typeTreat}
               value={form.typeTreatIds}
               onChange={(ids) => set('typeTreatIds', ids)}
             />

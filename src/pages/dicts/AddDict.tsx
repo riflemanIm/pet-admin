@@ -1,19 +1,20 @@
 // src/pages/dicts/AddDict.tsx
 import { Box, Button, Stack, TextField } from '@mui/material';
 import { useMemo } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Widget from '../../components/Widget';
-import { DictProvider, EntityName, useDictActions, useDictDispatch } from '../../context/DictContext';
+import { useDictActions, useDictDispatch, useDictMeta } from '../../context/DictContext';
 import { DictDto } from '../../helpers/dto';
 import useForm from '../../hooks/useForm';
 import validate from './validation';
 
-function AddDictComp({ entity }: { entity: EntityName }) {
+export default function AddDict(): JSX.Element {
   const navigate = useNavigate();
   const dispatch = useDictDispatch();
   const actions = useDictActions();
+  const { entity } = useDictMeta();
 
-  const onSuccess = () => navigate(`/dicts/${entity}/list`);
+  const onSuccess = () => navigate(`/dicts/${entity}`);
   const onError = (msg: string) => console.error('Create dict error:', msg);
 
   const save = () => {
@@ -47,16 +48,5 @@ function AddDictComp({ entity }: { entity: EntityName }) {
         </Stack>
       </Box>
     </Widget>
-  );
-}
-
-export default function AddDict(): JSX.Element {
-  const { entity } = useParams<{ entity: EntityName }>();
-  if (!entity) throw new Error('Missing :entity in route');
-
-  return (
-    <DictProvider entity={entity}>
-      <AddDictComp entity={entity} />
-    </DictProvider>
   );
 }

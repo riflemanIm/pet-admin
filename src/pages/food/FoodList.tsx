@@ -199,7 +199,7 @@ const FoodList = (): JSX.Element => {
         headerName: 'Тип лакомств',
         flex: 1,
         minWidth: 180,
-        renderCell: (p) => chipsByIds(refs?.typeTreats, (p.row as any)?.typeTreatIds)
+        renderCell: (p) => chipsByIds(refs?.typeTreat, (p.row as any)?.typeTreatIds)
       },
       {
         field: 'petSizeIds',

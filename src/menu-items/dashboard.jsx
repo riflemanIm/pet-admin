@@ -10,6 +10,7 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter'; // hardness
 import InventoryIcon from '@mui/icons-material/Inventory'; // packages
 import PetsIcon from '@mui/icons-material/Pets'; // petSizes
 import HealingIcon from '@mui/icons-material/Healing'; // specialNeeds
+import IcecreamIcon from '@mui/icons-material/Icecream'; // typeTreat
 import CategoryIcon from '@mui/icons-material/Category';
 // icons
 const icons = {
@@ -23,6 +24,7 @@ const icons = {
   InventoryIcon,
   PetsIcon,
   HealingIcon,
+  IcecreamIcon,
   CategoryIcon
 };
 
@@ -62,7 +64,7 @@ const dashboard = {
       id: 'ages',
       title: 'Возраст',
       type: 'item',
-      url: '/ages/list',
+      url: '/dicts/ages',
       icon: icons.ElderlyIcon,
       breadcrumbs: false
     },
@@ -70,7 +72,7 @@ const dashboard = {
       id: 'taste',
       title: 'Вкусы',
       type: 'item',
-      url: '/taste/list',
+      url: '/dicts/taste',
       icon: icons.RestaurantMenuIcon,
       breadcrumbs: false
     },
@@ -78,7 +80,7 @@ const dashboard = {
       id: 'designedFor',
       title: 'Для кого',
       type: 'item',
-      url: '/designedFor/list',
+      url: '/dicts/designedFor',
       icon: icons.PeopleAltIcon,
       breadcrumbs: false
     },
@@ -86,7 +88,7 @@ const dashboard = {
       id: 'ingredient',
       title: 'Ингредиенты',
       type: 'item',
-      url: '/ingredient/list',
+      url: '/dicts/ingredient',
       icon: icons.ScienceIcon,
       breadcrumbs: false
     },
@@ -94,7 +96,7 @@ const dashboard = {
       id: 'hardness',
       title: 'Жёсткость',
       type: 'item',
-      url: '/hardness/list',
+      url: '/dicts/hardness',
       icon: icons.FitnessCenterIcon,
       breadcrumbs: false
     },
@@ -102,7 +104,7 @@ const dashboard = {
       id: 'packages',
       title: 'Упаковки',
       type: 'item',
-      url: '/packages/list',
+      url: '/dicts/packages',
       icon: icons.InventoryIcon,
       breadcrumbs: false
     },
@@ -110,7 +112,7 @@ const dashboard = {
       id: 'petSizes',
       title: 'Размеры питомцев',
       type: 'item',
-      url: '/petSizes/list',
+      url: '/dicts/petSizes',
       icon: icons.PetsIcon,
       breadcrumbs: false
     },
@@ -118,8 +120,16 @@ const dashboard = {
       id: 'specialNeeds',
       title: 'Особые потребности',
       type: 'item',
-      url: '/specialNeeds/list',
+      url: '/dicts/specialNeeds',
       icon: icons.HealingIcon,
+      breadcrumbs: false
+    },
+    {
+      id: 'typeTreat',
+      title: 'Типы лакомств',
+      type: 'item',
+      url: '/dicts/typeTreat',
+      icon: icons.IcecreamIcon,
       breadcrumbs: false
     }
   ]

@@ -8,15 +8,14 @@ import Widget from '../../components/Widget';
 import { EntityName, useDictActions, useDictDispatch, useDictMeta, useDictState } from '../../context/DictContext';
 import { DictDto } from '../../helpers/dto';
 
-export default function DictList({ entity }: { entity: EntityName }) {
+export default function DictList() {
   const navigate = useNavigate();
   const dispatch = useDictDispatch();
   const actions = useDictActions();
-  const { state } = { state: useDictState() };
+  const state = useDictState();
   const { rows, totalCount, loading, errorMessage } = state;
-  const { entity: ctxEntity } = useDictMeta();
-  console.log('ctxEntity }', ctxEntity);
-  // safety: если вложили не тем entity, можно подсветить
+  const { entity } = useDictMeta();
+
   const title = useMemo(() => {
     const map: Record<EntityName, string> = {
       ages: 'Возраст',
@@ -26,7 +25,8 @@ export default function DictList({ entity }: { entity: EntityName }) {
       hardness: 'Жёсткость',
       packages: 'Упаковки',
       petSizes: 'Размеры питомца',
-      specialNeeds: 'Особые потребности'
+      specialNeeds: 'Особые потребности',
+      typeTreat: 'Типы лакомств'
     };
     return map[entity] ?? entity;
   }, [entity]);
@@ -43,7 +43,7 @@ export default function DictList({ entity }: { entity: EntityName }) {
       sortModel[0]?.field ?? 'id',
       (sortModel[0]?.sort as 'asc' | 'desc' | undefined) ?? 'asc'
     )(dispatch);
-  }, [dispatch, actions, filter, pagination, sortModel, ctxEntity]);
+  }, [dispatch, actions, filter, pagination, sortModel, entity]);
 
   const columns = useMemo<GridColDef<DictDto>[]>(
     () => [

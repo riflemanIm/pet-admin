@@ -114,12 +114,11 @@ const AddFood = (): JSX.Element => {
     setForm((prev) => ({ ...prev, [key]: value }));
   }, []);
 
-  const onStr = (key: keyof AddFoodForm) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>) =>
-      setField(key, e.target.value as any);
+  const onStr = (key: keyof AddFoodForm) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>) =>
+    setField(key, e.target.value as any);
   const onNum = (key: keyof AddFoodForm) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
-    setField(key, value === '' ? null : Number(value) as any);
+    setField(key, value === '' ? null : (Number(value) as any));
   };
   const onBool = (key: keyof AddFoodForm) => (_: React.ChangeEvent<HTMLInputElement>, checked: boolean) => setField(key, checked as any);
 
@@ -209,7 +208,13 @@ const AddFood = (): JSX.Element => {
                 onChange={onNum('quantityPackages')}
                 sx={{ flex: 1 }}
               />
-              <TextField type="number" label="Срок годн. (дн.)" value={form.expiration ?? ''} onChange={onNum('expiration')} sx={{ flex: 1 }} />
+              <TextField
+                type="number"
+                label="Срок годн. (дн.)"
+                value={form.expiration ?? ''}
+                onChange={onNum('expiration')}
+                sx={{ flex: 1 }}
+              />
             </Stack>
 
             <TextField label="Размер упаковки" value={form.packageSize} onChange={onStr('packageSize')} />
@@ -218,7 +223,12 @@ const AddFood = (): JSX.Element => {
             <HtmlEditor value={form.annotation ?? ''} onChange={(html) => setField('annotation', html)} />
 
             <SingleDict label="Вкус" options={refs.taste} value={form.tasteId} onChange={(id) => setField('tasteId', id)} />
-            <SingleDict label="Ингредиент" options={refs.ingredient} value={form.ingredientId} onChange={(id) => setField('ingredientId', id)} />
+            <SingleDict
+              label="Ингредиент"
+              options={refs.ingredient}
+              value={form.ingredientId}
+              onChange={(id) => setField('ingredientId', id)}
+            />
             <SingleDict label="Твёрдость" options={refs.hardness} value={form.hardnessId} onChange={(id) => setField('hardnessId', id)} />
 
             <Typography variant="subtitle2" sx={{ mt: 1 }}>
@@ -230,12 +240,32 @@ const AddFood = (): JSX.Element => {
 
         <Grid2 size={12}>
           <Stack spacing={2}>
-            <MultiDict label="Назначение" options={refs.designedFor} value={form.designedForIds} onChange={(ids) => setField('designedForIds', ids)} />
+            <MultiDict
+              label="Назначение"
+              options={refs.designedFor}
+              value={form.designedForIds}
+              onChange={(ids) => setField('designedForIds', ids)}
+            />
             <MultiDict label="Возраст" options={refs.ages} value={form.ageIds} onChange={(ids) => setField('ageIds', ids)} />
-            <MultiDict label="Тип лакомств" options={refs.typeTreats} value={form.typeTreatIds} onChange={(ids) => setField('typeTreatIds', ids)} />
-            <MultiDict label="Размер питомца" options={refs.petSizes} value={form.petSizeIds} onChange={(ids) => setField('petSizeIds', ids)} />
+            <MultiDict
+              label="Тип лакомств"
+              options={refs.typeTreat}
+              value={form.typeTreatIds}
+              onChange={(ids) => setField('typeTreatIds', ids)}
+            />
+            <MultiDict
+              label="Размер питомца"
+              options={refs.petSizes}
+              value={form.petSizeIds}
+              onChange={(ids) => setField('petSizeIds', ids)}
+            />
             <MultiDict label="Упаковки" options={refs.packages} value={form.packageIds} onChange={(ids) => setField('packageIds', ids)} />
-            <MultiDict label="Особые нужды" options={refs.specialNeeds} value={form.specialNeedsIds} onChange={(ids) => setField('specialNeedsIds', ids)} />
+            <MultiDict
+              label="Особые нужды"
+              options={refs.specialNeeds}
+              value={form.specialNeedsIds}
+              onChange={(ids) => setField('specialNeedsIds', ids)}
+            />
           </Stack>
         </Grid2>
 

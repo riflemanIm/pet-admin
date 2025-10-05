@@ -3,12 +3,12 @@ import React, { useEffect, useMemo } from 'react';
 import { Box, Button, Stack, TextField } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 import Widget from '../../components/Widget';
-import { useManagementDispatch, useManagementState, actions, ManagementProvider } from '../../context/ManagementContext';
+import { useManagementDispatch, useManagementState, actions } from '../../context/ManagementContext';
 import { UserDto } from '../../helpers/dto';
 import useForm from '../../hooks/useForm';
 import validate from './validation';
 
-const EditUserComp = (): JSX.Element => {
+export default function EditUser(): JSX.Element {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useManagementDispatch();
@@ -105,13 +105,5 @@ const EditUserComp = (): JSX.Element => {
         {errorMessage ? <span style={{ color: '#d32f2f' }}>{errorMessage}</span> : null}
       </Box>
     </Widget>
-  );
-};
-
-export default function EditUser(): JSX.Element {
-  return (
-    <ManagementProvider>
-      <EditUserComp />
-    </ManagementProvider>
   );
 }
